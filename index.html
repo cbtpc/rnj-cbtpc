@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CBT Paket C</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      background: linear-gradient(135deg, #6A11CB, #2575FC, #FFDEE9);
+      background-size: 400% 400%;
+      animation: gradientShift 2s ease infinite;
+      overflow: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 60px auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 10px 0;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 25px;
+      font-weight: normal;
+      color: #f0f0f0;
+    }
+
+    h3 {
+      font-size: 16px;
+      margin-top: 5px;
+      font-weight: normal;
+      color: #f0f0f0;
+    }
+
+    #motivasi {
+      font-size: 15px;
+      font-style: italic;
+      margin-bottom: 30px;
+      padding: 12px;
+      background-color: rgba(255,255,255,0.2);
+      border-left: 5px solid #fff;
+      border-radius: 8px;
+      color: #fff;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background-color: #ffffff;
+      color: #6A11CB;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-2px);
+    }
+
+    .btn.disabled {
+      background-color: #ccc;
+      color: #666;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 10px;
+      color: #eee;
+      line-height: 1.5;
+      text-align: right;
+    }
+
+    .stars {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .star {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px white;
+  animation: fall 4s linear infinite;
+}
+
+@keyframes fall {
+  0% {transform: translate(-50px, -100px); opacity: 0;}
+  50% {opacity: 1;}
+  100% {transform: translate(300px, 800px); opacity: 0;}
+}
+
+    @media screen and (max-width: 480px) {
+      h1 { font-size: 22px; }
+      h2 { font-size: 16px; }
+      #motivasi { font-size: 14px; }
+      .btn { font-size: 15px; padding: 12px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars">
+    <div class="star" style="left:10%; animation-delay:0s;"></div>
+    <div class="star" style="left:30%; animation-delay:1s;"></div>
+    <div class="star" style="left:50%; animation-delay:2s;"></div>
+    <div class="star" style="left:70%; animation-delay:3s;"></div>
+    <div class="star" style="left:90%; animation-delay:4s;"></div>
+  </div>
+
+  <div class="container">
+    <img src="https://i.imgur.com/J1mKppg.png" alt="Logo CBT" class="logo">
+    <h3>Selamat Datang di</h3>
+    <h1>CBT (Computer Based Test)</h1>
+    <h2>Semester Ganjil - Paket C</h2>
+    <div id="motivasi">“Setiap soal adalah langkah menuju impianmu.”</div>
+    <a id="mulaiBtn" href="pilih-hari.html" class="btn">Mulai Ujian</a>
+    <div class="footer">
+      Design by<br>
+      faisalfarid27@admin.kesetaraan.belajar.id<br>
+      PKBM Ristek Nusantara Jaya
+    </div>
+  </div>
+
+  <script>
+    const motivasiList = [
+      "“Setiap soal adalah langkah menuju impianmu.”",
+      "“Kerjakan dengan tenang, ikuti alurnya.”",
+      "“Percaya diri adalah kunci, kamu pasti bisa!”",
+      "“Jangan takut salah, harus berani mencoba.”",
+      "“Ujian bukan akhir, tapi awal dari pencapaianmu.”"
+    ];
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % motivasiList.length;
+      document.getElementById("motivasi").textContent = motivasiList[index];
+    }, 1600);
+
+    const mulaiBtn = document.getElementById("mulaiBtn");
+    const now = new Date();
+    const jam = now.getHours();
+    if (jam < 6 || jam >= 23) {
+      mulaiBtn.classList.add("disabled");
+      mulaiBtn.removeAttribute("href");
+      mulaiBtn.textContent = "Ujian belum dibuka";
+    }
+  </script>
+</body>
+</html>
