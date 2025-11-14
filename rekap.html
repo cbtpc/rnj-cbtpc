@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Rekap Jawaban Kelas 11</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:20px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border:1px solid #ccc; padding:8px; text-align:left; }
+    th { background:#f3f4f6; }
+  </style>
+</head>
+<body>
+  <h2>📋 Rekap Jawaban Siswa Kelas 11</h2>
+  <table id="tabel">
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Kelas</th>
+        <th>Mapel</th>
+        <th>Sekolah</th>
+        <th>Skor PG</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    async function loadData() {
+      const jawabanRes = await fetch("jawaban-kelas11.json");
+      const kunciRes = await fetch("kunci.json");
+      const jawabanData = await jawabanRes.json();
+      const kunciData = await kunciRes.json();
+
+      const tbody = document.querySelector("#tabel tbody");
+      tbody.innerHTML = "";
+
+      jawabanData.forEach(siswa => {
+        const kunci = kunciData[siswa.mapel] || {};
+        let benar = 0, total = Object.keys(kunci).length;
+
+        for (const q in kunci) {
+          if (siswa.jawaban[q] === kunci[q]) benar++;
+        }
+        const skor = Math.round((benar/total)*100);
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${siswa.nama}</td>
+          <td>${siswa.kelas}</td>
+          <td>${siswa.mapel}</td>
+          <td>${siswa.sekolah}</td>
+          <td>${benar}/${total} (${skor}%)</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
