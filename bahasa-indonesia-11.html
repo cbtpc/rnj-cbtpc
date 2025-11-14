@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CBT RNJ PAS GANJIL</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      user-select: none;
+    }
+    .hidden { display: none; }
+    .header {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 12px 8px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+    .subheader {
+      font-size: 16px;
+      margin-top: 4px;
+    }
+    .identity, .timer, .footer {
+      background-color: #e3f2fd;
+      color: #0d47a1;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+    .timer {
+      background-color: #fff3cd;
+      color: #856404;
+      font-weight: bold;
+    text-align:center
+    padding: 10px
+    font-size: 18px
+    }
+
+    .form-box, .question-box {
+      background: #fff;
+      margin: 16px;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .form-box input, .form-box select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 16px;
+    }
+    button {
+      flex: 1;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .section { display: none;
+}
+.section.active {
+  display: block;
+}
+  </style>
+</head>
+<body oncontextmenu="return false">
+
+  <!-- ✅ HEADER -->
+  <div class="header">
+    <img src="https://i.imgur.com/J1mKppg.png" alt="Logo RNJ" style="height:50px;"><br>
+    <h1>Ristek Nusantara Jaya</h1>
+    <div class="subheader">CBT RNJ | PAS GANJIL TP 2025/2026</div>
+  </div>
+
+  <!-- ✅ FORM IDENTITAS SISWA -->
+<div id="formSection" class="form-box">
+  <h2 style="text-align:center;">📝 Isi Identitas Siswa</h2>
+
+  <label for="nama">Nama Lengkap</label>
+  <input type="text" id="nama" placeholder="Contoh: Faisal Farid" required>
+
+  <label for="kelas">Kelas</label>
+  <select id="kelas" required>
+    <option value="">-- Pilih Kelas --</option>
+    <option value="XII IPA">XII IPA</option>
+    <option value="XII IPS">XII IPS</option>
+  </select>
+
+  <label for="sekolah">Nama Sekolah</label>
+  <select id="sekolah" required>
+    <option value="">-- Pilih Sekolah --</option>
+    <option value="Ristek Nusantara Jaya Jakarta">Ristek Nusantara Jaya Jakarta</option>
+    <option value="Ristek Nusantara Jaya Cikarang">Ristek Nusantara Jaya Cikarang</option>
+    <option value="Ristek Nusantara Jaya Tangerang">Ristek Nusantara Jaya Tangerang</option>
+    <option value="Ristek Nusantara Jaya Depok">Ristek Nusantara Jaya Depok</option>
+    <option value="Ristek Nusantara Jaya Yogyakarta">Ristek Nusantara Jaya Yogyakarta</option>
+  </select>
+
+  <button onclick="startCBT()">Mulai Ujian</button>
+</div>
+
+  <!-- ✅ HEADER DINAMIS -->
+  <div id="mainHeader" class="hidden">
+    <div style="background-color:#d1ecf1; color:#0c5460; padding:8px; text-align:center;">
+      👋 Selamat datang di <strong>APLIKASI CBT RNJ</strong>! Semangat ya, jangan lupa berdo'a <span id="namaSiswa">...</span> 💪
+    </div>
+    <div class="timer" id="timer">Sisa waktu: 60:00</div>
+  </div>
+
+    <!-- SOAL CBT -->
+    <div class="navigation">
+<div class="section" id="section1">
+    <div class="question-code">Kode Soal: BI.XI-PG-01</div>
+    <div class="question-text">
+        <p><strong>Bacalah kutipan berikut!</strong></p>
+        <p>(1) Rara, anak perempuan berusia sembilan tahun itu terus menggambari belakang kertas bungkus cabai, yang diambilnya dari los sayur Yu Emi. Sebuah pensil pendek terselip di jarinya.</p>
+        <p>(2) Mata Rara masih memandangi gambar rumah mungil, yang menjadi impiannya. Mulut kecilnya menyumbang senyum. Manis.<br>“Mak, kapan kita punya rumah?”</p>
+        <p>(3) Sejak ia mengerti arti tempat tinggal, pertanyaan itu kerap disampaikannya pada Emak.</p>
+        <p>(4) Mulanya perempuan berusia empat puluh limaan, yang rambutnya beruban di sana sini itu, tak menjawab.</p>
+        <p>(5) Baginya tak terlalu penting apa yang ditanyakan anak-anak.</p>
+        <p>(6) Kerasnya kehidupan membuat ia dan lakinya, hanyut dalam kepanikan setiap hari akan apa yang bisa dimakan anak-anak esok.</p>
+        <p>(7) Maka pertanyaan apapun dari anak-anak lebih sering hanya lewat telinga.<br>“Mak, kapan kita punya rumah?”</p>
+        <p><em>Jendela Rara, Asma Nadia</em></p>
+
+        <p>1. Jenis tahapan alur pada paragraf pertama pada kutipan di atas adalah ....</p>
+        <label><input type="radio" name="jawaban1" value="A"> a. pengenalan situasi cerita</label><br>
+        <label><input type="radio" name="jawaban1" value="B"> b. pengungkapan peristiwa</label><br>
+        <label><input type="radio" name="jawaban1" value="C"> c. menuju terjadinya konflik</label><br>
+        <label><input type="radio" name="jawaban1" value="D"> d. puncak konflik (klimaks)</label><br>
+        <label><input type="radio" name="jawaban1" value="E"> e. penyelesaian (ending)</label>
+    </div>
+    <div class="navigation">
+        <button onclick="goToSection(2)">Soal Sebelumnya</button>
+</div>
+</div>
+
+<div class="section" id="section2">
+    <div class="question-code">Kode Soal: BI.XI-PG-02</div>
+    <div class="question-text">
+<p><strong>Bacalah kutipan berikut!</strong></p>
+        <p>(1) Rara, anak perempuan berusia sembilan tahun itu terus menggambari belakang kertas bungkus cabai, yang diambilnya dari los sayur Yu Emi. Sebuah pensil pendek terselip di jarinya.</p>
+        <p>(2) Mata Rara masih memandangi gambar rumah mungil, yang menjadi impiannya. Mulut kecilnya menyumbang senyum. Manis.<br>“Mak, kapan kita punya rumah?”</p>
+        <p>(3) Sejak ia mengerti arti tempat tinggal, pertanyaan itu kerap disampaikannya pada Emak.</p>
+        <p>(4) Mulanya perempuan berusia empat puluh limaan, yang rambutnya beruban di sana sini itu, tak menjawab.</p>
+        <p>(5) Baginya tak terlalu penting apa yang ditanyakan anak-anak.</p>
+        <p>(6) Kerasnya kehidupan membuat ia dan lakinya, hanyut dalam kepanikan setiap hari akan apa yang bisa dimakan anak-anak esok.</p>
+        <p>(7) Maka pertanyaan apapun dari anak-anak lebih sering hanya lewat telinga.<br>“Mak, kapan kita punya rumah?”</p>
+        <p><em>Jendela Rara, Asma Nadia</em></p>
+
+        <p>2. “Baginya tak terlalu penting apa yang ditanyakan anak-anak”<br>
+        Maksud kalimat yang sesuai dengan pernyataan di atas adalah ....</p>
+        <label><input type="radio" name="jawaban2" value="A"> a. Mak tidak peduli sama sekali pada Rara karena kesal.</label><br>
+        <label><input type="radio" name="jawaban2" value="B"> b. Mak tidak peduli karena tidak punya harta.</label><br>
+        <label><input type="radio" name="jawaban2" value="C"> c. Mak lagi malas-malasan karena sakit.</label><br>
+        <label><input type="radio" name="jawaban2" value="D"> d. Mak lelah karena sudah berulang kali dibahas.</label><br>
+        <label><input type="radio" name="jawaban2" value="E"> e. Mak tidak perhatian karena sudah punya rumah.</label>
+    </div>
+        <div class="navigation">
+        <button onclick="goToSection(1)">Soal Sebelumnya</button>
+        <button onclick="goToSection(3)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section3">
+    <div class="question-code">Kode Soal: BI.XI-PG-03</div>
+    <div class="question-text">
+<p><strong>Bacalah kutipan berikut!</strong></p>
+        <p>(1) Rara, anak perempuan berusia sembilan tahun itu terus menggambari belakang kertas bungkus cabai, yang diambilnya dari los sayur Yu Emi. Sebuah pensil pendek terselip di jarinya.</p>
+        <p>(2) Mata Rara masih memandangi gambar rumah mungil, yang menjadi impiannya. Mulut kecilnya menyumbang senyum. Manis.<br>“Mak, kapan kita punya rumah?”</p>
+        <p>(3) Sejak ia mengerti arti tempat tinggal, pertanyaan itu kerap disampaikannya pada Emak.</p>
+        <p>(4) Mulanya perempuan berusia empat puluh limaan, yang rambutnya beruban di sana sini itu, tak menjawab.</p>
+        <p>(5) Baginya tak terlalu penting apa yang ditanyakan anak-anak.</p>
+        <p>(6) Kerasnya kehidupan membuat ia dan lakinya, hanyut dalam kepanikan setiap hari akan apa yang bisa dimakan anak-anak esok.</p>
+        <p>(7) Maka pertanyaan apapun dari anak-anak lebih sering hanya lewat telinga.<br>“Mak, kapan kita punya rumah?”</p>
+        <p><em>Jendela Rara, Asma Nadia</em></p>
+
+        <p>3. Kutipan cerpen di atas mendeskripsikan unsur ….</p>
+        <label><input type="radio" name="jawaban3" value="A"> a. tokoh dan penokohan</label><br>
+        <label><input type="radio" name="jawaban3" value="B"> b. alur</label><br>
+        <label><input type="radio" name="jawaban3" value="C"> c. latar</label><br>
+        <label><input type="radio" name="jawaban3" value="D"> d. tema</label><br>
+        <label><input type="radio" name="jawaban3" value="E"> e. amanat</label>
+    </div>
+      <div class="navigation">
+        <button onclick="goToSection(2)">Soal Sebelumnya</button>
+        <button onclick="goToSection(4)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section4">
+    <div class="question-code">Kode Soal: BI.XI-PG-04</div>
+    <div class="question-text">
+<p><strong>Bacalah kutipan berikut!</strong></p>
+        <p>(1) Rara, anak perempuan berusia sembilan tahun itu terus menggambari belakang kertas bungkus cabai, yang diambilnya dari los sayur Yu Emi. Sebuah pensil pendek terselip di jarinya.</p>
+        <p>(2) Mata Rara masih memandangi gambar rumah mungil, yang menjadi impiannya. Mulut kecilnya menyumbang senyum. Manis.<br>“Mak, kapan kita punya rumah?”</p>
+        <p>(3) Sejak ia mengerti arti tempat tinggal, pertanyaan itu kerap disampaikannya pada Emak.</p>
+        <p>(4) Mulanya perempuan berusia empat puluh limaan, yang rambutnya beruban di sana sini itu, tak menjawab.</p>
+        <p>(5) Baginya tak terlalu penting apa yang ditanyakan anak-anak.</p>
+        <p>(6) Kerasnya kehidupan membuat ia dan lakinya, hanyut dalam kepanikan setiap hari akan apa yang bisa dimakan anak-anak esok.</p>
+        <p>(7) Maka pertanyaan apapun dari anak-anak lebih sering hanya lewat telinga.<br>“Mak, kapan kita punya rumah?”</p>
+        <p><em>Jendela Rara, Asma Nadia</em></p>
+
+        <p>4. Kalimat-kalimat pada kutipan cerpen di atas menggunakan pronomina, kecuali nomor ….</p>
+        <label><input type="radio" name="jawaban4" value="A"> a. (3)</label><br>
+        <label><input type="radio" name="jawaban4" value="B"> b. (4)</label><br>
+        <label><input type="radio" name="jawaban4" value="C"> c. (5)</label><br>
+        <label><input type="radio" name="jawaban4" value="D"> d. (6)</label><br>
+        <label><input type="radio" name="jawaban4" value="E"> e. (7)</label>
+    </div>
+      <div class="navigation">
+        <button onclick="goToSection(3)">Soal Sebelumnya</button>
+        <button onclick="goToSection(5)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section5">
+    <div class="question-code">Kode Soal: BI.XI-PG-05</div>
+    <div class="question-text">
+<p><strong>Bacalah kutipan berikut!</strong></p>
+        <p>(1) Rara, anak perempuan berusia sembilan tahun itu terus menggambari belakang kertas bungkus cabai, yang diambilnya dari los sayur Yu Emi. Sebuah pensil pendek terselip di jarinya.</p>
+        <p>(2) Mata Rara masih memandangi gambar rumah mungil, yang menjadi impiannya. Mulut kecilnya menyumbang senyum. Manis.<br>“Mak, kapan kita punya rumah?”</p>
+        <p>(3) Sejak ia mengerti arti tempat tinggal, pertanyaan itu kerap disampaikannya pada Emak.</p>
+        <p>(4) Mulanya perempuan berusia empat puluh limaan, yang rambutnya beruban di sana sini itu, tak menjawab.</p>
+        <p>(5) Baginya tak terlalu penting apa yang ditanyakan anak-anak.</p>
+        <p>(6) Kerasnya kehidupan membuat ia dan lakinya, hanyut dalam kepanikan setiap hari akan apa yang bisa dimakan anak-anak esok.</p>
+        <p>(7) Maka pertanyaan apapun dari anak-anak lebih sering hanya lewat telinga.<br>“Mak, kapan kita punya rumah?”</p>
+        <p><em>Jendela Rara, Asma Nadia</em></p>
+
+        <p>5. <em>Kerasnya kehidupan membuat ia dan lakinya, hanyut dalam kepanikan setiap hari akan apa yang bisa dimakan anak-anak esok.</em><br>
+        Kata bergaris bawah menggunakan pronomina/kata ganti ....</p>
+        <label><input type="radio" name="jawaban5" value="A"> a. orang</label><br>
+        <label><input type="radio" name="jawaban5" value="B"> b. milik</label><br>
+        <label><input type="radio" name="jawaban5" value="C"> c. tanya</label><br>
+        <label><input type="radio" name="jawaban5" value="D"> d. penunjuk</label><br>
+        <label><input type="radio" name="jawaban5" value="E"> e. penguatan</label>
+    </div>
+      <div class="navigation">
+        <button onclick="goToSection(4)">Soal Sebelumnya</button>
+        <button onclick="goToSection(6)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section6">
+<div class="question-code">Kode Soal: BI.XI-PG-06</div>
+<div class="question-text">
+    <p> Mata Rara masih memandangi gambar rumah mungil, yang menjadi impiannya. Mulut kecilnya menyumbang senyum. Manis.<br>
+        “Mak, kapan kita punya rumah?”
+        <p>6. Kalimat tak langsung dari pernyataan di bawah ini adalah …</p>
+    <label><input type="radio" name="jawaban6" value="A"> a. Rara bertanya, kapan mereka punya rumah?</label><br>
+    <label><input type="radio" name="jawaban6" value="B"> b. Rara bertanya kepada Mak kapan mereka punya rumah?</label><br>
+    <label><input type="radio" name="jawaban6" value="C"> c. Rara bertanya kepada Mak kapan dia punya rumah?</label><br>
+    <label><input type="radio" name="jawaban6" value="D"> d. Kapan Rara punya rumah, tanya Rara.</label><br>
+    <label><input type="radio" name="jawaban6" value="E"> e. Kapan mereka punya rumah, tanya Rara.</label>
+</div>
+   <div class="navigation">
+        <button onclick="goToSection(5)">Soal Sebelumnya</button>
+        <button onclick="goToSection(7)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section7">
+<div class="question-code">Kode Soal: BI.XI-PG-07</div>
+<div class="question-text">
+<p><strong>Bacalah kutipan cerita berikut !</strong></p>
+<p>(1) Masih dengan segudang rasa penasaran Dee membawa langkahnya masuk ke dalam rumah sambil menenteng paket dari Pak Pos barusan.</p>
+<p>(2) Lalu gadis berusia duapuluh tiga tahun itu menjatuhkan paket di tangannya ke sofa, tempat tiga gadis lainnya sedang asyik menonton tv</p>
+<p>(3) Paket meluncur dan jatuh tepat di tengah-tengah sofa.</p>
+<p>(4) Tiga gadis kaget, melupakan tontonan seru Oprah Winfrey’s Show dan berebut lebih dulu mengambil paket yang jatuh. Andra yang pertama berhasil merebut paket yang jatuh dekat pangkuan Ita.</p>
+<p>(5) Hiruk-pikuk segera terjadi.</p>
+<p>(6) Ita berusaha merebut paket yang jatuh di pangkuannya sebab mengira itu memang ditujukan Dee untuknya. Sementara Anik tidak mau tinggal diam, ikut bertarung.</p>
+<p>(7) Adegan ala anak kecil itu berlangsung cukup seru, setidaknya di mata Dee.</p>
+<p>(8) Sayang semua menjadi antiklimaks ketika Andra, Ita, dan Anik tak menemukan nama yang dituju sang pengirim.</p>
+<p>(9) Amplop yang menempel pada bingkisan itu kosong. Hanya ada sebuah alamat yang ditulis tangan.</p>
+<p style="text-align: center;">Sepotong Cinta dalam Diam, Asma nadia</p>
+ 
+    <p>7. Jenis tahapan alur pada paragraf pertama pada kutipan di atas adalah ....</p>
+    <label><input type="radio" name="jawaban7" value="A"> a. pendahuluan cerita</label><br>
+    <label><input type="radio" name="jawaban7" value="B"> b. pengungkapan peristiwa</label><br>
+    <label><input type="radio" name="jawaban7" value="C"> c. menuju terjadinya konflik</label><br>
+    <label><input type="radio" name="jawaban7" value="D"> d. puncak konflik (klimaks)</label><br>
+    <label><input type="radio" name="jawaban7" value="E"> e. penyelesaian (ending)</label>
+</div>
+   <div class="navigation">
+        <button onclick="goToSection(6)">Soal Sebelumnya</button>
+        <button onclick="goToSection(8)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section8">
+<div class="question-code">Kode Soal: BI.XI-PG-08</div>
+<div class="question-text">
+  <p><strong>Bacalah kutipan cerita berikut !</strong></p>
+<p>(1) Masih dengan segudang rasa penasaran Dee membawa langkahnya masuk ke dalam rumah sambil menenteng paket dari Pak Pos barusan.</p>
+<p>(2) Lalu gadis berusia duapuluh tiga tahun itu menjatuhkan paket di tangannya ke sofa, tempat tiga gadis lainnya sedang asyik menonton tv</p>
+<p>(3) Paket meluncur dan jatuh tepat di tengah-tengah sofa.</p>
+<p>(4) Tiga gadis kaget, melupakan tontonan seru Oprah Winfrey’s Show dan berebut lebih dulu mengambil paket yang jatuh. Andra yang pertama berhasil merebut paket yang jatuh dekat pangkuan Ita.</p>
+<p>(5) Hiruk-pikuk segera terjadi.</p>
+<p>(6) Ita berusaha merebut paket yang jatuh di pangkuannya sebab mengira itu memang ditujukan Dee untuknya. Sementara Anik tidak mau tinggal diam, ikut bertarung.</p>
+<p>(7) Adegan ala anak kecil itu berlangsung cukup seru, setidaknya di mata Dee.</p>
+<p>(8) Sayang semua menjadi antiklimaks ketika Andra, Ita, dan Anik tak menemukan nama yang dituju sang pengirim.</p>
+<p>(9) Amplop yang menempel pada bingkisan itu kosong. Hanya ada sebuah alamat yang ditulis tangan.</p>
+<p style="text-align: center;">Sepotong Cinta dalam Diam, Asma nadia</p>
+
+    <p>8. Kalimat yang menyatakan latar dalam kutipan cerpen di atas terdapat pada kalimat ….</p>
+    <label><input type="radio" name="jawaban8" value="A"> a. (1) dan (3)</label><br>
+    <label><input type="radio" name="jawaban8" value="B"> b. (2) dan (4)</label><br>
+    <label><input type="radio" name="jawaban8" value="C"> c. (3) dan (5)</label><br>
+    <label><input type="radio" name="jawaban8" value="D"> d. (4) dan (6)</label><br>
+    <label><input type="radio" name="jawaban8" value="E"> e. (5) dan (7)</label>
+</div>
+<div class="navigation">
+        <button onclick="goToSection(7)">Soal Sebelumnya</button>
+        <button onclick="goToSection(9)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section9">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-09</strong></div>
+<div class="question-text">
+<p><strong>Bacalah kutipan cerita berikut !</strong></p>
+<p>(1) Masih dengan segudang rasa penasaran Dee membawa langkahnya masuk ke dalam rumah sambil menenteng paket dari Pak Pos barusan.</p>
+<p>(2) Lalu gadis berusia duapuluh tiga tahun itu menjatuhkan paket di tangannya ke sofa, tempat tiga gadis lainnya sedang asyik menonton tv</p>
+<p>(3) Paket meluncur dan jatuh tepat di tengah-tengah sofa.</p>
+<p>(4) Tiga gadis kaget, melupakan tontonan seru Oprah Winfrey’s Show dan berebut lebih dulu mengambil paket yang jatuh. Andra yang pertama berhasil merebut paket yang jatuh dekat pangkuan Ita.</p>
+<p>(5) Hiruk-pikuk segera terjadi.</p>
+<p>(6) Ita berusaha merebut paket yang jatuh di pangkuannya sebab mengira itu memang ditujukan Dee untuknya. Sementara Anik tidak mau tinggal diam, ikut bertarung.</p>
+<p>(7) Adegan ala anak kecil itu berlangsung cukup seru, setidaknya di mata Dee.</p>
+<p>(8) Sayang semua menjadi antiklimaks ketika Andra, Ita, dan Anik tak menemukan nama yang dituju sang pengirim.</p>
+<p>(9) Amplop yang menempel pada bingkisan itu kosong. Hanya ada sebuah alamat yang ditulis tangan.</p>
+<p style="text-align: center;">Sepotong Cinta dalam Diam, Asma nadia</p>
+
+    <p>9. Gadis berusia dua puluh tahun yang dimaksud dalam kutipan teks di atas adalah ….</p>
+    <label><input type="radio" name="jawaban9" value="A"> a. Dee</label><br>
+    <label><input type="radio" name="jawaban9" value="B"> b. Andra</label><br>
+    <label><input type="radio" name="jawaban9" value="C"> c. Ita</label><br>
+    <label><input type="radio" name="jawaban9" value="D"> d. Anik</label><br>
+    <label><input type="radio" name="jawaban9" value="E"> e. Tukang Pos</label>
+</div>
+<div class="navigation">
+        <button onclick="goToSection(8)">Soal Sebelumnya</button>
+        <button onclick="goToSection(10)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section10">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-10</strong></div>
+<div class="question-text">
+<p><strong>Bacalah kutipan cerita berikut !</strong></p>
+<p>(1) Masih dengan segudang rasa penasaran Dee membawa langkahnya masuk ke dalam rumah sambil menenteng paket dari Pak Pos barusan.</p>
+<p>(2) Lalu gadis berusia duapuluh tiga tahun itu menjatuhkan paket di tangannya ke sofa, tempat tiga gadis lainnya sedang asyik menonton tv</p>
+<p>(3) Paket meluncur dan jatuh tepat di tengah-tengah sofa.</p>
+<p>(4) Tiga gadis kaget, melupakan tontonan seru Oprah Winfrey’s Show dan berebut lebih dulu mengambil paket yang jatuh. Andra yang pertama berhasil merebut paket yang jatuh dekat pangkuan Ita.</p>
+<p>(5) Hiruk-pikuk segera terjadi.</p>
+<p>(6) Ita berusaha merebut paket yang jatuh di pangkuannya sebab mengira itu memang ditujukan Dee untuknya. Sementara Anik tidak mau tinggal diam, ikut bertarung.</p>
+<p>(7) Adegan ala anak kecil itu berlangsung cukup seru, setidaknya di mata Dee.</p>
+<p>(8) Sayang semua menjadi antiklimaks ketika Andra, Ita, dan Anik tak menemukan nama yang dituju sang pengirim.</p>
+<p>(9) Amplop yang menempel pada bingkisan itu kosong. Hanya ada sebuah alamat yang ditulis tangan.</p>
+<p style="text-align: center;">Sepotong Cinta dalam Diam, Asma nadia</p>
+
+    <p>10. Kutipan pada paragraf ketiga potongan cerpen di atas mendeskripsikan tentang ….</p>
+    <label><input type="radio" name="jawaban10" value="A"> a. tokoh</label><br>
+    <label><input type="radio" name="jawaban10" value="B"> b. penokohan</label><br>
+    <label><input type="radio" name="jawaban10" value="C"> c. latar</label><br>
+    <label><input type="radio" name="jawaban10" value="D"> d. alur</label><br>
+    <label><input type="radio" name="jawaban10" value="E"> e. tema</label>
+</div>
+  <button onclick="goToSection(9)">Soal Sebelumnya</button>
+        <button onclick="goToSection(11)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+
+<div class="section" id="section11">
+<div class="question-code"><strong>Soal: BI.XI-PG-11</strong></div>
+<div class="question-text">
+<p><strong>Bacalah kutipan cerita berikut !</strong></p>
+<p>(1) Masih dengan segudang rasa penasaran Dee membawa langkahnya masuk ke dalam rumah sambil menenteng paket dari Pak Pos barusan.</p>
+<p>(2) Lalu gadis berusia duapuluh tiga tahun itu menjatuhkan paket di tangannya ke sofa, tempat tiga gadis lainnya sedang asyik menonton tv</p>
+<p>(3) Paket meluncur dan jatuh tepat di tengah-tengah sofa.</p>
+<p>(4) Tiga gadis kaget, melupakan tontonan seru Oprah Winfrey’s Show dan berebut lebih dulu mengambil paket yang jatuh. Andra yang pertama berhasil merebut paket yang jatuh dekat pangkuan Ita.</p>
+<p>(5) Hiruk-pikuk segera terjadi.</p>
+<p>(6) Ita berusaha merebut paket yang jatuh di pangkuannya sebab mengira itu memang ditujukan Dee untuknya. Sementara Anik tidak mau tinggal diam, ikut bertarung.</p>
+<p>(7) Adegan ala anak kecil itu berlangsung cukup seru, setidaknya di mata Dee.</p>
+<p>(8) Sayang semua menjadi antiklimaks ketika Andra, Ita, dan Anik tak menemukan nama yang dituju sang pengirim.</p>
+<p>(9) Amplop yang menempel pada bingkisan itu kosong. Hanya ada sebuah alamat yang ditulis tangan.</p>
+<p style="text-align: center;">Sepotong Cinta dalam Diam, Asma nadia</p>
+
+    <p>11. Kutipan cerita di atas menggunakan sudut pandang pencerita orang …</p>
+    <label><input type="radio" name="jawaban11" value="A"> a. pertama tokoh utama</label><br>
+    <label><input type="radio" name="jawaban11" value="B"> b. pertama tokoh sampingan</label><br>
+    <label><input type="radio" name="jawaban11" value="C"> c. ketiga peran utama</label><br>
+    <label><input type="radio" name="jawaban11" value="D"> d. ketiga tokoh sampingan</label><br>
+    <label><input type="radio" name="jawaban11" value="E"> e. ketiga</label>
+</div>
+
+<button onclick="goToSection(10)">Soal Sebelumnya</button>
+        <button onclick="goToSection(12)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section12">
+<div class="question-code"><strong>Soal: BI.XI-PG-12</strong></div>
+<div class="question-text">
+  <p><strong>Bacalah kutipan cerita berikut !</strong></p>
+<p>(1) Masih dengan segudang rasa penasaran Dee membawa langkahnya masuk ke dalam rumah sambil menenteng paket dari Pak Pos barusan.</p>
+<p>(2) Lalu gadis berusia duapuluh tiga tahun itu menjatuhkan paket di tangannya ke sofa, tempat tiga gadis lainnya sedang asyik menonton tv</p>
+<p>(3) Paket meluncur dan jatuh tepat di tengah-tengah sofa.</p>
+<p>(4) Tiga gadis kaget, melupakan tontonan seru Oprah Winfrey’s Show dan berebut lebih dulu mengambil paket yang jatuh. Andra yang pertama berhasil merebut paket yang jatuh dekat pangkuan Ita.</p>
+<p>(5) Hiruk-pikuk segera terjadi.</p>
+<p>(6) Ita berusaha merebut paket yang jatuh di pangkuannya sebab mengira itu memang ditujukan Dee untuknya. Sementara Anik tidak mau tinggal diam, ikut bertarung.</p>
+<p>(7) Adegan ala anak kecil itu berlangsung cukup seru, setidaknya di mata Dee.</p>
+<p>(8) Sayang semua menjadi antiklimaks ketika Andra, Ita, dan Anik tak menemukan nama yang dituju sang pengirim.</p>
+<p>(9) Amplop yang menempel pada bingkisan itu kosong. Hanya ada sebuah alamat yang ditulis tangan.</p>
+<p style="text-align: center;">Sepotong Cinta dalam Diam, Asma nadia</p>
+
+    <p>12. Kalimat berikut menggunakan pronomina/kata ganti, kecuali pada kalimat nomor ….</p>
+    <label><input type="radio" name="jawaban12" value="A"> a. (1)</label><br>
+    <label><input type="radio" name="jawaban12" value="B"> b. (2)</label><br>
+    <label><input type="radio" name="jawaban12" value="C"> c. (3)</label><br>
+    <label><input type="radio" name="jawaban12" value="D"> d. (6)</label><br>
+    <label><input type="radio" name="jawaban12" value="E"> e. (9)</label>
+</div>
+
+<button onclick="goToSection(11)">Soal Sebelumnya</button>
+        <button onclick="goToSection(13)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section13">
+<div class="question-code">Kode Soal: BI.XI-PG-13</div>
+<div class="question-text">
+  <p><strong>Bacalah kutipan cerita berikut !</strong></p>
+<p>(1) Masih dengan segudang rasa penasaran Dee membawa langkahnya masuk ke dalam rumah sambil menenteng paket dari Pak Pos barusan.</p>
+<p>(2) Lalu gadis berusia duapuluh tiga tahun itu menjatuhkan paket di tangannya ke sofa, tempat tiga gadis lainnya sedang asyik menonton tv</p>
+<p>(3) Paket meluncur dan jatuh tepat di tengah-tengah sofa.</p>
+<p>(4) Tiga gadis kaget, melupakan tontonan seru Oprah Winfrey’s Show dan berebut lebih dulu mengambil paket yang jatuh. Andra yang pertama berhasil merebut paket yang jatuh dekat pangkuan Ita.</p>
+<p>(5) Hiruk-pikuk segera terjadi.</p>
+<p>(6) Ita berusaha merebut paket yang jatuh di pangkuannya sebab mengira itu memang ditujukan Dee untuknya. Sementara Anik tidak mau tinggal diam, ikut bertarung.</p>
+<p>(7) Adegan ala anak kecil itu berlangsung cukup seru, setidaknya di mata Dee.</p>
+<p>(8) Sayang semua menjadi antiklimaks ketika Andra, Ita, dan Anik tak menemukan nama yang dituju sang pengirim.</p>
+<p>(9) Amplop yang menempel pada bingkisan itu kosong. Hanya ada sebuah alamat yang ditulis tangan.</p>
+<p style="text-align: center;">Sepotong Cinta dalam Diam, Asma nadia</p>
+
+    <p>13. <em>Ita berusaha merebut paket yang jatuh di pangkuannya.</em><br>
+    Dalam kalimat di atas terdapat pronominal/kata ganti ….</p>
+    <label><input type="radio" name="jawaban13" value="A"> a. persona</label><br>
+    <label><input type="radio" name="jawaban13" value="B"> b. milik</label><br>
+    <label><input type="radio" name="jawaban13" value="C"> c. penunjuk</label><br>
+    <label><input type="radio" name="jawaban13" value="D"> d. tanya</label><br>
+    <label><input type="radio" name="jawaban13" value="E"> e. penghubung</label>
+</div>
+
+<button onclick="goToSection(12)">Soal Sebelumnya</button>
+        <button onclick="goToSection(14)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section14">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-14</strong></div>
+<div class="question-text">
+
+<p>Bacalah kutipan cerpen berikut !</p>
+<div>Aku tak punya ruang tamu. Buat apa? Siapa yang akan mengunjungiku? “Ummm… emmm… begini… umm…” Vira begitu gelisah. 
+Aku diam, menunggu kata-kata selanjutnya keluar dari bibirnya. Namun, ia tak bereaksi apa-apa. 
+“Kamu apa kabar?” Ajeng bermanis-manis padaku. 
+Aku menyeringai, “Tak perlu bermanis-manis. Terus terang saja, apa tujuan kalian?” 
+“Begini, kami sudah menemukan pelaku pencurian yang sebenarnya.” Ajeng berkata setenang mungkin. 
+“Siapa?” 
+Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pelan. 
+“Kok bisa?” aku bertanya heran. 
+“Dia mengaku kemarin. Dia berkata bahwa ia yang mencuri dompet Vira. Dia sungguh menyesal, sekarang dia sudah dikeluarkan dari sekolah.” Ajeng menimpali. Aku shock. 
+“Di keluarkan? Mengapa?” 
+“Selain mencuri, dia juga pengguna narkoba.” Ucap Vira getir. 
+“Astaga!” aku terkesiap. 
+“Maafkan aku, Niki! Aku sudah mencurigaimu. Aku cemburu padamu yang di perhatikan Alvin. Padahal ternyata dia tak sekeren yang aku kira.” Vira menghambur ke pelukku sambil terisak. 
+“Aku juga, Nik!.” Ajeng ikut memelukku. Aku mengelus pundak mereka. 
+“Ya.” Desahku pelan. Ketika mereka melepaskan pelukan mereka, kulihat senyum mengembang di wajah Ajeng dan VIra di balik isakannya. </div>
+
+    <p>14. Ditinjau dari sudut pandang pencerita, kutipan cerita di atas menggunakan orang ….</p>
+    <label><input type="radio" name="jawaban14" value="A"> a. pertama tokoh utama</label><br>
+    <label><input type="radio" name="jawaban14" value="B"> b. pertama tokoh sampingan</label><br>
+    <label><input type="radio" name="jawaban14" value="C"> c. ketiga tokoh utama</label><br>
+    <label><input type="radio" name="jawaban14" value="D"> d. ketiga sampingan</label><br>
+    <label><input type="radio" name="jawaban14" value="E"> e. ketiga serbatahu</label>
+</div>
+
+<button onclick="goToSection(13)">Soal Sebelumnya</button>
+        <button onclick="goToSection(15)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section15">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-15</strong></div>
+<div class="question-text">
+  <p>Bacalah kutipan cerpen berikut !</p>
+<div>Aku tak punya ruang tamu. Buat apa? Siapa yang akan mengunjungiku? “Ummm… emmm… begini… umm…” Vira begitu gelisah. 
+Aku diam, menunggu kata-kata selanjutnya keluar dari bibirnya. Namun, ia tak bereaksi apa-apa. 
+“Kamu apa kabar?” Ajeng bermanis-manis padaku. 
+Aku menyeringai, “Tak perlu bermanis-manis. Terus terang saja, apa tujuan kalian?” 
+“Begini, kami sudah menemukan pelaku pencurian yang sebenarnya.” Ajeng berkata setenang mungkin. 
+“Siapa?” 
+Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pelan. 
+“Kok bisa?” aku bertanya heran. 
+“Dia mengaku kemarin. Dia berkata bahwa ia yang mencuri dompet Vira. Dia sungguh menyesal, sekarang dia sudah dikeluarkan dari sekolah.” Ajeng menimpali. Aku shock. 
+“Di keluarkan? Mengapa?” 
+“Selain mencuri, dia juga pengguna narkoba.” Ucap Vira getir. 
+“Astaga!” aku terkesiap. 
+“Maafkan aku, Niki! Aku sudah mencurigaimu. Aku cemburu padamu yang di perhatikan Alvin. Padahal ternyata dia tak sekeren yang aku kira.” Vira menghambur ke pelukku sambil terisak. 
+“Aku juga, Nik!.” Ajeng ikut memelukku. Aku mengelus pundak mereka. 
+“Ya.” Desahku pelan. Ketika mereka melepaskan pelukan mereka, kulihat senyum mengembang di wajah Ajeng dan VIra di balik isakannya. </div>
+    <p>15. Aku tak punya ruang tamu. Buat apa? Siapa yang akan mengunjungiku? “Ummm… emmm… begini… umm…” Vira begitu gelisah.</p>
+    <p>Tamu yang dimaksud dalam kutipan di atas adalah ….</p>
+    <label><input type="radio" name="jawaban15" value="A"> a. Aku</label><br>
+    <label><input type="radio" name="jawaban15" value="B"> b. Vira</label><br>
+    <label><input type="radio" name="jawaban15" value="C"> c. Niki</label><br>
+    <label><input type="radio" name="jawaban15" value="D"> d. Ajeng</label><br>
+    <label><input type="radio" name="jawaban15" value="E"> e. Alvin</label>
+</div>
+
+<button onclick="goToSection(14)">Soal Sebelumnya</button>
+        <button onclick="goToSection(16)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section16">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-16</strong></div>
+<div class="question-text">
+  <p>Bacalah kutipan cerpen berikut !</p>
+<div>Aku tak punya ruang tamu. Buat apa? Siapa yang akan mengunjungiku? “Ummm… emmm… begini… umm…” Vira begitu gelisah. 
+Aku diam, menunggu kata-kata selanjutnya keluar dari bibirnya. Namun, ia tak bereaksi apa-apa. 
+“Kamu apa kabar?” Ajeng bermanis-manis padaku. 
+Aku menyeringai, “Tak perlu bermanis-manis. Terus terang saja, apa tujuan kalian?” 
+“Begini, kami sudah menemukan pelaku pencurian yang sebenarnya.” Ajeng berkata setenang mungkin. 
+“Siapa?” 
+Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pelan. 
+“Kok bisa?” aku bertanya heran. 
+“Dia mengaku kemarin. Dia berkata bahwa ia yang mencuri dompet Vira. Dia sungguh menyesal, sekarang dia sudah dikeluarkan dari sekolah.” Ajeng menimpali. Aku shock. 
+“Di keluarkan? Mengapa?” 
+“Selain mencuri, dia juga pengguna narkoba.” Ucap Vira getir. 
+“Astaga!” aku terkesiap. 
+“Maafkan aku, Niki! Aku sudah mencurigaimu. Aku cemburu padamu yang di perhatikan Alvin. Padahal ternyata dia tak sekeren yang aku kira.” Vira menghambur ke pelukku sambil terisak. 
+“Aku juga, Nik!.” Ajeng ikut memelukku. Aku mengelus pundak mereka. 
+“Ya.” Desahku pelan. Ketika mereka melepaskan pelukan mereka, kulihat senyum mengembang di wajah Ajeng dan VIra di balik isakannya. </div>
+    <p>16. “Ya.” Desahku pelan. Ketika mereka melepaskan pelukan mereka, kulihat senyum mengembang di wajah Ajeng dan Vira di balik isakannya.</p>
+    <p>Alur dalam kutipan cerita di atas merupakan tahap ….</p>
+    <label><input type="radio" name="jawaban16" value="A"> a. Orientasi/pengenalan</label><br>
+    <label><input type="radio" name="jawaban16" value="B"> b. Komplikasi/intrik</label><br>
+    <label><input type="radio" name="jawaban16" value="C"> c. Klimaks</label><br>
+    <label><input type="radio" name="jawaban16" value="D"> d. Antiklimaks</label><br>
+    <label><input type="radio" name="jawaban16" value="E"> e. Resolusi</label>
+</div>
+
+<button onclick="goToSection(15)">Soal Sebelumnya</button>
+        <button onclick="goToSection(17)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section17">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-17</strong></div>
+<div class="question-text">
+  <p>Bacalah kutipan cerpen berikut !</p>
+<div>Aku tak punya ruang tamu. Buat apa? Siapa yang akan mengunjungiku? “Ummm… emmm… begini… umm…” Vira begitu gelisah. 
+Aku diam, menunggu kata-kata selanjutnya keluar dari bibirnya. Namun, ia tak bereaksi apa-apa. 
+“Kamu apa kabar?” Ajeng bermanis-manis padaku. 
+Aku menyeringai, “Tak perlu bermanis-manis. Terus terang saja, apa tujuan kalian?” 
+“Begini, kami sudah menemukan pelaku pencurian yang sebenarnya.” Ajeng berkata setenang mungkin. 
+“Siapa?” 
+Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pelan. 
+“Kok bisa?” aku bertanya heran. 
+“Dia mengaku kemarin. Dia berkata bahwa ia yang mencuri dompet Vira. Dia sungguh menyesal, sekarang dia sudah dikeluarkan dari sekolah.” Ajeng menimpali. Aku shock. 
+“Di keluarkan? Mengapa?” 
+“Selain mencuri, dia juga pengguna narkoba.” Ucap Vira getir. 
+“Astaga!” aku terkesiap. 
+“Maafkan aku, Niki! Aku sudah mencurigaimu. Aku cemburu padamu yang di perhatikan Alvin. Padahal ternyata dia tak sekeren yang aku kira.” Vira menghambur ke pelukku sambil terisak. 
+“Aku juga, Nik!.” Ajeng ikut memelukku. Aku mengelus pundak mereka. 
+“Ya.” Desahku pelan. Ketika mereka melepaskan pelukan mereka, kulihat senyum mengembang di wajah Ajeng dan VIra di balik isakannya. </div>
+    <p>“Begini, kami sudah menemukan pelaku pencurian yang sebenarnya.” Ajeng berkata setenang mungkin.</p>
+    <div>17.Kalimat tidak langsung dari pernyataan di atas adalah ….</div>
+    <label><input type="radio" name="jawaban17" value="A"> a. Ajeng berkata bahwa kami menemukan pelaku pencurian yang sebenarnya.</label><br>
+    <label><input type="radio" name="jawaban17" value="B"> b. Ajeng mengatakan bahwa kami menemukan pelaku pencurian yang sebenarnya.</label><br>
+    <label><input type="radio" name="jawaban17" value="C"> c. Ajeng berkata bahwa dia menemukan pelaku pencurian yang sebenarnya.</label><br>
+    <label><input type="radio" name="jawaban17" value="D"> d. Ajeng berkata bahwa mereka menemukan pelaku pencurian yang sebenarnya.</label><br>
+    <label><input type="radio" name="jawaban17" value="E"> e. Ajeng mengatakan bahwa mereka menemukan pelaku pencurian yang sebenarnya.</label>
+</div>
+
+<button onclick="goToSection(16)">Soal Sebelumnya</button>
+        <button onclick="goToSection(18)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section18">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-18</strong></div>
+<div class="question-text">
+  <p>Bacalah kutipan cerpen berikut !</p>
+<div>Aku tak punya ruang tamu. Buat apa? Siapa yang akan mengunjungiku? “Ummm… emmm… begini… umm…” Vira begitu gelisah. 
+Aku diam, menunggu kata-kata selanjutnya keluar dari bibirnya. Namun, ia tak bereaksi apa-apa. 
+“Kamu apa kabar?” Ajeng bermanis-manis padaku. 
+Aku menyeringai, “Tak perlu bermanis-manis. Terus terang saja, apa tujuan kalian?” 
+“Begini, kami sudah menemukan pelaku pencurian yang sebenarnya.” Ajeng berkata setenang mungkin. 
+“Siapa?” 
+Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pelan. 
+“Kok bisa?” aku bertanya heran. 
+“Dia mengaku kemarin. Dia berkata bahwa ia yang mencuri dompet Vira. Dia sungguh menyesal, sekarang dia sudah dikeluarkan dari sekolah.” Ajeng menimpali. Aku shock. 
+“Di keluarkan? Mengapa?” 
+“Selain mencuri, dia juga pengguna narkoba.” Ucap Vira getir. 
+“Astaga!” aku terkesiap. 
+“Maafkan aku, Niki! Aku sudah mencurigaimu. Aku cemburu padamu yang di perhatikan Alvin. Padahal ternyata dia tak sekeren yang aku kira.” Vira menghambur ke pelukku sambil terisak. 
+“Aku juga, Nik!.” Ajeng ikut memelukku. Aku mengelus pundak mereka. 
+“Ya.” Desahku pelan. Ketika mereka melepaskan pelukan mereka, kulihat senyum mengembang di wajah Ajeng dan VIra di balik isakannya. </div>
+    <p>18. Berikut kalimat yang mendeskripsikan latar tempat, yaitu …</p>
+    <label><input type="radio" name="jawaban18" value="A"> a. Sesampainya di Jakarta, aku turun di stasiun Pasar Senen menjadi gelandangan dan berkawan dengan gembel-gembel Poncol.</label><br>
+    <label><input type="radio" name="jawaban18" value="B"> b. Hidup dari hasil mengamen dari atas metro mini yang lain.</label><br>
+    <label><input type="radio" name="jawaban18" value="C"> c. Tapi aku tidak mau kalau harus pulang.</label><br>
+    <label><input type="radio" name="jawaban18" value="D"> d. Sudah dua bulan kulalui begitu.</label><br>
+    <label><input type="radio" name="jawaban18" value="E"> e. Aku bertemu warga kampung yang pasti memandang buruk tindakanku pada sahabatku.</label>
+</div>
+
+<button onclick="goToSection(17)">Soal Sebelumnya</button>
+        <button onclick="goToSection(19)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section19">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-19</strong></div>
+<div class="question-text">
+  <p>Perhatikan Jenis Karya Sastra Berikut !!</p>
+  <p>(1) seloka<br>(2) karmina<br>(3) legenda<br>(4) talibun<br>(5) gurindam<br>(6) fabel</p>
+
+    <div>19. Jenis puisi berikut tergolong puisi lama adalah nomor ….</div>
+    <label><input type="radio" name="jawaban19" value="A"> a. (1), (2), dan (3)</label><br>
+    <label><input type="radio" name="jawaban19" value="B"> b. (1), (3), dan (5)</label><br>
+    <label><input type="radio" name="jawaban19" value="C"> c. (3), (5), dan (6)</label><br>
+    <label><input type="radio" name="jawaban19" value="D"> d. (1), (2), dan (4)</label><br>
+    <label><input type="radio" name="jawaban19" value="E"> e. (2), (4), dan (6)</label>
+</div>
+
+<button onclick="goToSection(18)">Soal Sebelumnya</button>
+        <button onclick="goToSection(20)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section20">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-20</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah puisi lama berikut!</strong></p>
+    <p>Main kuda di atas rumput<br>Bertemu dengannya, siapa takut</p>
+    <p>20. Puisi lama di atas termasuk ....</p>
+    <label><input type="radio" name="jawaban20" value="A"> a. syair</label><br>
+    <label><input type="radio" name="jawaban20" value="B"> b. karmina</label><br>
+    <label><input type="radio" name="jawaban20" value="C"> c. gurindam</label><br>
+    <label><input type="radio" name="jawaban20" value="D"> d. talibun</label><br>
+    <label><input type="radio" name="jawaban20" value="E"> e. pantun</label>
+</div>
+
+<button onclick="goToSection(19)">Soal Sebelumnya</button>
+        <button onclick="goToSection(21)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section21">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-21</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah puisi lama berikut.</strong></p>
+    <p>Melati warnanya putih<br>Buah sawo warnanya coklat<br>Kapan pun siap berlatih<br>Jika ingin jadi anak hebat</p>
+    <p>21. Ditinjau dari bentuknya, puisi di atas adalah ….</p>
+    <label><input type="radio" name="jawaban21" value="A"> a. syair</label><br>
+    <label><input type="radio" name="jawaban21" value="B"> b. talibun</label><br>
+    <label><input type="radio" name="jawaban21" value="C"> c. seloka</label><br>
+    <label><input type="radio" name="jawaban21" value="D"> d. mantra</label><br>
+    <label><input type="radio" name="jawaban21" value="E"> e. pantun</label>
+</div>
+
+<button onclick="goToSection(20)">Soal Sebelumnya</button>
+        <button onclick="goToSection(22)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section22">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-22</strong></div>
+<div class="question-text">
+    <p>Barang siapa memelihara mata<br>Terlindunglah dari sifat seraka</p>
+    <p>22. Puisi lama di atas tergolong ….</p>
+    <label><input type="radio" name="jawaban22" value="A"> a. pantun</label><br>
+    <label><input type="radio" name="jawaban22" value="B"> b. gurindam</label><br>
+    <label><input type="radio" name="jawaban22" value="C"> c. seloka</label><br>
+    <label><input type="radio" name="jawaban22" value="D"> d. syair</label><br>
+    <label><input type="radio" name="jawaban22" value="E"> e. talibun</label>
+</div>
+
+<button onclick="goToSection(21)">Soal Sebelumnya</button>
+        <button onclick="goToSection(23)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+
+<div class="section" id="section23">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-23</strong></div>
+<div class="question-text">
+    <p><strong>Perhatikan pernyataan berikut!</strong></p>
+    <p>(1) Terdiri dari dua baris<br>
+       (2) Ada sampiran dan isi<br>
+       (3) Baris pertama berisi kalimat syarat<br>
+       (4) Bersajak aa aa<br>
+       (5) Semua baris merupakan isi<br>
+       (6) Satu baris berisi 8 – 14 suku kata<br>
+       (7) Baris 2 dan 4 akan dilanjut dalam bait selanjutnya</p>
+
+    <p>23. Ciri-ciri syair terdapat pada nomor ….</p>
+    <label><input type="radio" name="jawaban23" value="A"> a. (1), (2), dan (4)</label><br>
+    <label><input type="radio" name="jawaban23" value="B"> b. (1), (2), dan (6)</label><br>
+    <label><input type="radio" name="jawaban23" value="C"> c. (1), (3), dan (6)</label><br>
+    <label><input type="radio" name="jawaban23" value="D"> d. (2), (4), dan (6)</label><br>
+    <label><input type="radio" name="jawaban23" value="E"> e. (4), (5), dan (6)</label>
+</div>
+
+<button onclick="goToSection(22)">Soal Sebelumnya</button>
+        <button onclick="goToSection(24)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section24">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-24</strong></div>
+<div class="question-text">
+  <p><strong>Perhatikan pernyataan berikut!</strong></p>
+    <p>(1) Terdiri dari dua baris<br>
+       (2) Ada sampiran dan isi<br>
+       (3) Baris pertama berisi kalimat syarat<br>
+       (4) Bersajak aa aa<br>
+       (5) Semua baris merupakan isi<br>
+       (6) Satu baris berisi 8 – 14 suku kata<br>
+       (7) Baris 2 dan 4 akan dilanjut dalam bait selanjutnya</p>
+
+    <p>24. Ciri-ciri seloka terdapat pada nomor ….</p>
+    <label><input type="radio" name="jawaban24" value="A"> a. (1), (2), dan (4)</label><br>
+    <label><input type="radio" name="jawaban24" value="B"> b. (1), (2), dan (6)</label><br>
+    <label><input type="radio" name="jawaban24" value="C"> c. (1), (3), dan (6)</label><br>
+    <label><input type="radio" name="jawaban24" value="D"> d. (2), (6), dan (7)</label><br>
+    <label><input type="radio" name="jawaban24" value="E"> e. (3), (6), dan (7)</label>
+</div>
+
+<button onclick="goToSection(23)">Soal Sebelumnya</button>
+        <button onclick="goToSection(25)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section25">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-25</strong></div>
+<div class="question-text">
+    <p>25. Persamaan antara pantun dengan syair adalah sebagai berikut, kecuali ….</p>
+    <label><input type="radio" name="jawaban25" value="A"> a. bersajak ab, ab</label><br>
+    <label><input type="radio" name="jawaban25" value="B"> b. terdiri atas empat baris</label><br>
+    <label><input type="radio" name="jawaban25" value="C"> c. merupakan puisi lama</label><br>
+    <label><input type="radio" name="jawaban25" value="D"> d. satu larik terdiri dari 8 sampai 14 suku kata</label><br>
+    <label><input type="radio" name="jawaban25" value="E"> e. memiliki isi</label>
+</div>
+
+<button onclick="goToSection(24)">Soal Sebelumnya</button>
+        <button onclick="goToSection(26)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section26">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-26</strong></div>
+<div class="question-text">
+    <p>26. Berikut ciri-ciri khas puisi lama, kecuali ….</p>
+    <label><input type="radio" name="jawaban26" value="A"> a. terikat oleh jumlah aturan jumlah baris</label><br>
+    <label><input type="radio" name="jawaban26" value="B"> b. terikat oleh aturan rima</label><br>
+    <label><input type="radio" name="jawaban26" value="C"> c. penyebarannya bersifat lisan</label><br>
+    <label><input type="radio" name="jawaban26" value="D"> d. anonim, nama pengarang tak disertakan</label><br>
+    <label><input type="radio" name="jawaban26" value="E"> e. terikat oleh daerah asal</label>
+</div>
+
+<button onclick="goToSection(25)">Soal Sebelumnya</button>
+        <button onclick="goToSection(27)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+
+<div class="section" id="section27">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-27</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah puisi baru berikut dengan saksama.</strong></p>
+    <p>Aku tak puas<br>Sebab itu aku menjadi buas<br>Menjadi buas dan ganas</p>
+    <p>27. Ditinjau dari jumlah barisnya, kutipan puisi baru di atas termasuk ....</p>
+    <label><input type="radio" name="jawaban27" value="A"> a. kuatrin</label><br>
+    <label><input type="radio" name="jawaban27" value="B"> b. tersina</label><br>
+    <label><input type="radio" name="jawaban27" value="C"> c. distikon</label><br>
+    <label><input type="radio" name="jawaban27" value="D"> d. sektet</label><br>
+    <label><input type="radio" name="jawaban27" value="E"> e. septima</label>
+</div>
+
+<button onclick="goToSection(26)">Soal Sebelumnya</button>
+        <button onclick="goToSection(28)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section28">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-28</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah puisi baru berikut dengan saksama.</strong></p>
+    <p>Indonesia tumpah darahku<br>
+    Duduk di pantai tanah yang permai<br>
+    Tempat gelombang pecah berderai<br>
+    Berbuih putih di pasir terderai</p>
+    <p>Tampaklah pulau di lautan hijau<br>
+    Gunung gemunung bagus rupanya<br>
+    Tumpah darahku Indonesia namanya</p>
+    <p><em>(Muhammad Yamin)</em></p>
+
+    <p>28. Dilihat dari jumlah barisnya, puisi baru di atas termasuk bentuk puisi ....</p>
+    <label><input type="radio" name="jawaban28" value="A"> a. kuatren</label><br>
+    <label><input type="radio" name="jawaban28" value="B"> b. kuin</label><br>
+    <label><input type="radio" name="jawaban28" value="C"> c. sektet</label><br>
+    <label><input type="radio" name="jawaban28" value="D"> d. septima</label><br>
+    <label><input type="radio" name="jawaban28" value="E"> e. oktava</label>
+</div>
+
+<button onclick="goToSection(27)">Soal Sebelumnya</button>
+        <button onclick="goToSection(29)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section29">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-29</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah puisi lama berikut!</strong></p>
+    <p>Dalam ribaan bahagia datang<br>
+    Tersenyum bagai kencana<br>
+    Mengharus bagai cendana</p>
+    <p>Dalam bahagia cinta tiba melayang<br>
+    Bersinar bagai mentari<br>
+    Mewarna bagai sari</p>
+    <p><em>(Sanusi Pane)</em></p>
+
+    <p>29. Ditinjau dari sajak dan jumlah barisnya, penggalan puisi lama di atas termasuk ....</p>
+    <label><input type="radio" name="jawaban29" value="A"> a. distikon</label><br>
+    <label><input type="radio" name="jawaban29" value="B"> b. tersina</label><br>
+    <label><input type="radio" name="jawaban29" value="C"> c. kuatren</label><br>
+    <label><input type="radio" name="jawaban29" value="D"> d. kuin</label><br>
+    <label><input type="radio" name="jawaban29" value="E"> e. septima</label>
+</div>
+
+<button onclick="goToSection(28)">Soal Sebelumnya</button>
+        <button onclick="goToSection(30)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section30">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-30</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah puisi baru berikut dengan saksama.</strong></p>
+    <p>Merindu bagia<br>
+    Jika hari tlah malam<br>
+    Angin berhenti dari bernafas<br>
+    Sukma jiwaku rasa tenggelam<br>
+    Dalam laut tidak terwatas<br>
+    Mengiris hati diiris sedih</p>
+
+    <p>30. Dilihat dari jumlah barisnya, puisi baru di atas termasuk bentuk puisi ....</p>
+    <label><input type="radio" name="jawaban30" value="A"> a. distikon</label><br>
+    <label><input type="radio" name="jawaban30" value="B"> b. tersina</label><br>
+    <label><input type="radio" name="jawaban30" value="C"> c. kuatren</label><br>
+    <label><input type="radio" name="jawaban30" value="D"> d. kuin</label><br>
+    <label><input type="radio" name="jawaban30" value="E"> e. sektet</label>
+</div>
+
+<button onclick="goToSection(29)">Soal Sebelumnya</button>
+        <button onclick="goToSection(31)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section31">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-31</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah puisi baru berikut dengan saksama!</strong></p>
+    <p>Kami telah meninggalkan engkau<br>
+    tasik yang tenang tiada beriak<br>
+    diteduhi gunung yang rimbun<br>
+    dari angin dan topan<br>
+    sebab sekali kami terbangun<br>
+    Ombak ria berkejar-kejaran<br>
+    Di gelanggang biru dekat langit<br>
+    pasir rata berulang dikecup<br>
+    tebing curam ditantang diserang<br>
+    dalam bergurau bersama angin</p>
+    <p><em>Karya: Sutan Takdir Alisyahbana</em></p>
+
+    <p>31. Berdasarkan jumlah larik tiap baitnya, puisi baru di atas termasuk ….</p>
+    <label><input type="radio" name="jawaban31" value="A"> a. kuin</label><br>
+    <label><input type="radio" name="jawaban31" value="B"> b. kuatren</label><br>
+    <label><input type="radio" name="jawaban31" value="C"> c. sekstet</label><br>
+    <label><input type="radio" name="jawaban31" value="D"> d. distikon</label><br>
+    <label><input type="radio" name="jawaban31" value="E"> e. tersina</label>
+</div>
+
+<button onclick="goToSection(30)">Soal Sebelumnya</button>
+        <button onclick="goToSection(32)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section32">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-32</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah puisi baru berikut ini!</strong></p>
+    <p>Membayang rupa jua<br>
+    Adi kanda lama lalu<br>
+    Membuat hati jua<br>
+    Layu lipu rindu-sendu</p>
+
+    <p>32. Puisi di atas termasuk dalam jenis ....</p>
+    <label><input type="radio" name="jawaban32" value="A"> a. distikon</label><br>
+    <label><input type="radio" name="jawaban32" value="B"> b. terzina</label><br>
+    <label><input type="radio" name="jawaban32" value="C"> c. kuatren</label><br>
+    <label><input type="radio" name="jawaban32" value="D"> d. kuin</label><br>
+    <label><input type="radio" name="jawaban32" value="E"> e. sektet</label>
+</div>
+
+<button onclick="goToSection(31)">Soal Sebelumnya</button>
+        <button onclick="goToSection(33)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section33">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-33</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah kutipan teks berikut!</strong></p>
+    <p>Karena kecerdasannya, setelah tamat SMA di Bandung tahun 1954, beliau masuk di ITB (Institut Teknologi Bandung). Ia tidak sampai selesai di sana karena beliau mendapatkan beasiswa dari Menteri Pendidikan dan Kebudayaan untuk melanjutkan kuliahnya di Jerman, karena mengingat pesan Bung Karno tentang pentingnya penguasaan Teknologi yang berwawasan nasional yakni Teknologi Maritim dan Teknologi Dirgantara di kala Indonesia pada waktu itu masih berkembang.</p>
+    <p>Pada waktu itu pemerintah Indonesia di bawah Soekarno gencar membiayai ratusan siswa cerdas Indonesia untuk bersekolah di luar negeri menimba ilmu di sana. Habibie adalah rombongan kedua diantara ratusan pelajar SMA yang secara khusus dikirim ke berbagai negara. Habibie kemudian memilih jurusan Teknik Penerbangan dengan spesialisasi Konstruksi pesawat terbang di Rhein Westfalen Aachen Technische Hochschule (RWTH).</p>
+    <p>33. Paragraf kedua kutipan di atas merupakan bagian teks cerita ulang yaitu ....</p>
+    <label><input type="radio" name="jawaban33" value="A"> a. orientasi</label><br>
+    <label><input type="radio" name="jawaban33" value="B"> b. persiapan/pengenalan</label><br>
+    <label><input type="radio" name="jawaban33" value="C"> c. inti/iven</label><br>
+    <label><input type="radio" name="jawaban33" value="D"> d. penutup/reorientasi</label><br>
+    <label><input type="radio" name="jawaban33" value="E"> e. judul</label>
+</div>
+
+<button onclick="goToSection(32)">Soal Sebelumnya</button>
+        <button onclick="goToSection(34)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section34">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-34</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah kutipan teks berikut!</strong></p>
+   <p>Karena kecerdasannya, setelah tamat SMA di Bandung tahun 1954, beliau masuk di ITB (Institut Teknologi Bandung). Ia tidak sampai selesai di sana karena beliau mendapatkan beasiswa dari Menteri Pendidikan dan Kebudayaan untuk melanjutkan kuliahnya di Jerman, karena mengingat pesan Bung Karno tentang pentingnya penguasaan Teknologi yang berwawasan nasional yakni Teknologi Maritim dan Teknologi Dirgantara di kala Indonesia pada waktu itu masih berkembang.</p>
+    <p>Pada waktu itu pemerintah Indonesia di bawah Soekarno gencar membiayai ratusan siswa cerdas Indonesia untuk bersekolah di luar negeri menimba ilmu di sana. Habibie adalah rombongan kedua diantara ratusan pelajar SMA yang secara khusus dikirim ke berbagai negara. Habibie kemudian memilih jurusan Teknik Penerbangan dengan spesialisasi Konstruksi pesawat terbang di Rhein Westfalen Aachen Technische Hochschule (RWTH).</p>
+    <p>34. Kalimat berikut yang sesuai dengan kutipan teks di atas adalah ….</p>
+    <label><input type="radio" name="jawaban34" value="A"> a. Setelah selesai pendidikan SMA, Habibie melanjutkan pendidikannya di Jerman.</label><br>
+    <label><input type="radio" name="jawaban34" value="B"> b. Habibie adalah rombongan pertama diantara ratusan pelajar SMA yang secara khusus dikirim ke berbagai negara.</label><br>
+    <label><input type="radio" name="jawaban34" value="C"> c. Habibie kemudian memilih jurusan Managemen Penerbangan dengan spesialisasi Konstruksi pesawat terbang.</label><br>
+    <label><input type="radio" name="jawaban34" value="D"> d. Setelah tamat SMA di Bandung tahun 1954, beliau masuk di ITB.</label><br>
+    <label><input type="radio" name="jawaban34" value="E"> e. Rhein Westfalen Aachen Technische Hochschule (RWTH) adalah tempat beliau tinggal.</label>
+</div>
+
+<button onclick="goToSection(33)">Soal Sebelumnya</button>
+        <button onclick="goToSection(35)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section35">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-35</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah kutipan teks berikut!</strong></p>
+     <p>Karena kecerdasannya, setelah tamat SMA di Bandung tahun 1954, beliau masuk di ITB (Institut Teknologi Bandung). Ia tidak sampai selesai di sana karena beliau mendapatkan beasiswa dari Menteri Pendidikan dan Kebudayaan untuk melanjutkan kuliahnya di Jerman, karena mengingat pesan Bung Karno tentang pentingnya penguasaan Teknologi yang berwawasan nasional yakni Teknologi Maritim dan Teknologi Dirgantara di kala Indonesia pada waktu itu masih berkembang.</p>
+    <p>Pada waktu itu pemerintah Indonesia di bawah Soekarno gencar membiayai ratusan siswa cerdas Indonesia untuk bersekolah di luar negeri menimba ilmu di sana. Habibie adalah rombongan kedua diantara ratusan pelajar SMA yang secara khusus dikirim ke berbagai negara. Habibie kemudian memilih jurusan Teknik Penerbangan dengan spesialisasi Konstruksi pesawat terbang di Rhein Westfalen Aachen Technische Hochschule (RWTH).</p>
+    <p>35. <em>Teknologi Maritim dan Teknologi Dirgantara di Indonesia pada waktu itu masih berkembang.</em><br>
+    Predikat pada kutipan kalimat di atas adalah ....</p>
+    <label><input type="radio" name="jawaban35" value="A"> a. Teknologi Maritim dan Teknologi Dirgantara</label><br>
+    <label><input type="radio" name="jawaban35" value="B"> b. di Indonesia pada waktu itu</label><br>
+    <label><input type="radio" name="jawaban35" value="C"> c. pada waktu itu</label><br>
+    <label><input type="radio" name="jawaban35" value="D"> d. masih berkembang.</label><br>
+    <label><input type="radio" name="jawaban35" value="E"> e. berkembang</label>
+</div>
+
+<button onclick="goToSection(34)">Soal Sebelumnya</button>
+        <button onclick="goToSection(36)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section36">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-36</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah kutipan teks berikut!</strong></p>
+    <p>Karena kecerdasannya, setelah tamat SMA di Bandung tahun 1954, beliau masuk di ITB (Institut Teknologi Bandung). Ia tidak sampai selesai di sana karena beliau mendapatkan beasiswa dari Menteri Pendidikan dan Kebudayaan untuk melanjutkan kuliahnya di Jerman, karena mengingat pesan Bung Karno tentang pentingnya penguasaan Teknologi yang berwawasan nasional yakni Teknologi Maritim dan Teknologi Dirgantara di kala Indonesia pada waktu itu masih berkembang.</p>
+    <p>Pada waktu itu pemerintah Indonesia di bawah Soekarno gencar membiayai ratusan siswa cerdas Indonesia untuk bersekolah di luar negeri menimba ilmu di sana. Habibie adalah rombongan kedua diantara ratusan pelajar SMA yang secara khusus dikirim ke berbagai negara. Habibie kemudian memilih jurusan Teknik Penerbangan dengan spesialisasi Konstruksi pesawat terbang di Rhein Westfalen Aachen Technische Hochschule (RWTH).</p>
+    <p>36. <em>Beliau mendapatkan beasiswa dari Menteri Pendidikan dan Kebudayaan.</em><br>
+    Pola kalimat pada kalimat di atas adalah ....</p>
+    <label><input type="radio" name="jawaban36" value="A"> a. S – P – O – Pl</label><br>
+    <label><input type="radio" name="jawaban36" value="B"> b. S – P – O – K</label><br>
+    <label><input type="radio" name="jawaban36" value="C"> c. S – P – O – K – K</label><br>
+    <label><input type="radio" name="jawaban36" value="D"> d. S – P – Pl – K – K</label><br>
+    <label><input type="radio" name="jawaban36" value="E"> e. S – P – Pl – K</label>
+</div>
+
+<button onclick="goToSection(35)">Soal Sebelumnya</button>
+        <button onclick="goToSection(37)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section37">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-37</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah kutipan teks berikut!</strong></p>
+     <p>Karena kecerdasannya, setelah tamat SMA di Bandung tahun 1954, beliau masuk di ITB (Institut Teknologi Bandung). Ia tidak sampai selesai di sana karena beliau mendapatkan beasiswa dari Menteri Pendidikan dan Kebudayaan untuk melanjutkan kuliahnya di Jerman, karena mengingat pesan Bung Karno tentang pentingnya penguasaan Teknologi yang berwawasan nasional yakni Teknologi Maritim dan Teknologi Dirgantara di kala Indonesia pada waktu itu masih berkembang.</p>
+    <p>Pada waktu itu pemerintah Indonesia di bawah Soekarno gencar membiayai ratusan siswa cerdas Indonesia untuk bersekolah di luar negeri menimba ilmu di sana. Habibie adalah rombongan kedua diantara ratusan pelajar SMA yang secara khusus dikirim ke berbagai negara. Habibie kemudian memilih jurusan Teknik Penerbangan dengan spesialisasi Konstruksi pesawat terbang di Rhein Westfalen Aachen Technische Hochschule (RWTH).</p>
+    <p>37. <em>Pada waktu itu pemerintah Indonesia di bawah Soekarno gencar membiayai ratusan siswa cerdas Indonesia untuk bersekolah di luar negeri menimba ilmu di sana.</em><br>
+    Berikut unsur keterangan dalam kalimat di atas, kecuali ....</p>
+    <label><input type="radio" name="jawaban37" value="A"> a. pada waktu itu</label><br>
+    <label><input type="radio" name="jawaban37" value="B"> b. pemerintah Indonesia</label><br>
+    <label><input type="radio" name="jawaban37" value="C"> c. di bawah Soekarno</label><br>
+    <label><input type="radio" name="jawaban37" value="D"> d. untuk bersekolah</label><br>
+    <label><input type="radio" name="jawaban37" value="E"> e. di luar negeri</label>
+</div>
+
+<button onclick="goToSection(36)">Soal Sebelumnya</button>
+        <button onclick="goToSection(38)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section38">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-38</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah kutipan teks berikut!</strong></p>
+     <p>Karena kecerdasannya, setelah tamat SMA di Bandung tahun 1954, beliau masuk di ITB (Institut Teknologi Bandung). Ia tidak sampai selesai di sana karena beliau mendapatkan beasiswa dari Menteri Pendidikan dan Kebudayaan untuk melanjutkan kuliahnya di Jerman, karena mengingat pesan Bung Karno tentang pentingnya penguasaan Teknologi yang berwawasan nasional yakni Teknologi Maritim dan Teknologi Dirgantara di kala Indonesia pada waktu itu masih berkembang.</p>
+    <p>Pada waktu itu pemerintah Indonesia di bawah Soekarno gencar membiayai ratusan siswa cerdas Indonesia untuk bersekolah di luar negeri menimba ilmu di sana. Habibie adalah rombongan kedua diantara ratusan pelajar SMA yang secara khusus dikirim ke berbagai negara. Habibie kemudian memilih jurusan Teknik Penerbangan dengan spesialisasi Konstruksi pesawat terbang di Rhein Westfalen Aachen Technische Hochschule (RWTH).</p>
+    <p>38. Kalimat berikut yang menggunakan predikat ekatransitif terdapat pada kalimat nomor ...</p>
+    <label><input type="radio" name="jawaban38" value="A"> a. Ia tidak sampai selesai di sana.</label><br>
+    <label><input type="radio" name="jawaban38" value="B"> b. Habibie kemudian memilih jurusan Teknik Penerbangan.</label><br>
+    <label><input type="radio" name="jawaban38" value="C"> c. Beliau masuk di ITB.</label><br>
+    <label><input type="radio" name="jawaban38" value="D"> d. Habibie adalah rombongan kedua.</label><br>
+    <label><input type="radio" name="jawaban38" value="E"> e. Indonesia pada waktu itu masih berkembang.</label>
+</div>
+
+<button onclick="goToSection(37)">Soal Sebelumnya</button>
+        <button onclick="goToSection(39)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<div class="section" id="section39">
+<div class="question-code"><strong>Kode Soal: BI.XI-PG-39</strong></div>
+<div class="question-text">
+    <p><strong>Bacalah kutipan teks berikut!</strong></p>
+    <p>Habibie adalah rombongan kedua <u>diantara</u> ratusan pelajar SMA yang secara khusus dikirim ke berbagai negara.</p>
+    <p>39. Kata yang digarisbawahi merupakan pronomina ....</p>
+    <label><input type="radio" name="jawaban39" value="A"> a. penunjuk</label><br>
+    <label><input type="radio" name="jawaban39" value="B"> b. kepunyaan</label><br>
+    <label><input type="radio" name="jawaban39" value="C"> c. persona</label><br>
+    <label><input type="radio" name="jawaban39" value="D"> d. penanya</label><br>
+    <label><input type="radio" name="jawaban39" value="E"> e. penghubung</label>
+</div>
+
+<button onclick="goToSection(38)">Soal Sebelumnya</button>
+        <button onclick="goToSection(40)">Soal Selanjutnya</button>
+    </div>
+</div>
+</div>
+
+<!-- ✅ Soal 40 -->
+<div class="section" id="section40">
+  <div class="question-code"><strong>Kode Soal: BI.XI-PG-40</strong></div>
+  <div class="question-text">
+    <p><strong>Bacalah kutipan teks berikut!</strong></p>
+    <p>Habibie kemudian memilih jurusan Teknik Penerbangan dengan spesialisasi Konstruksi pesawat terbang di Rhein Westfalen Aachen Technische Hochschule (RWTH).</p>
+    <p>40. Pola kalimat di atas adalah ....</p>
+    <label><input type="radio" name="jawaban40" value="A"> a. S – P – O – K – K</label><br>
+    <label><input type="radio" name="jawaban40" value="B"> b. S – P – O – K – K</label><br>
+    <label><input type="radio" name="jawaban40" value="C"> c. S – K – P – O – K – K</label><br>
+    <label><input type="radio" name="jawaban40" value="D"> d. S – P – P – O – K – K</label><br>
+    <label><input type="radio" name="jawaban40" value="E"> e. S – P – K – O – K – K</label>
+  </div>
+
+  <!-- Tombol navigasi -->
+  <button onclick="goToSection(39)">Soal Sebelumnya</button>
+  <button onclick="goToKonfirmasiEssai()">Selesai PG</button>
+</div>
+
+<!-- ✅ Konfirmasi Lanjut ke Soal Esai -->
+<div class="section" id="konfirmasiEssai" style="text-align: center; padding: 20px;">
+  <h2>🔒 <strong>Konfirmasi Lanjut ke Soal Esai</strong></h2>
+  <p>Anda telah menyelesaikan seluruh soal pilihan ganda.</p>
+  <p><strong>Apakah Anda yakin ingin menutup soal pilihan ganda dan melanjutkan ke soal esai?</strong></p>
+  <p>Centang kotak di bawah ini, lalu tekan tombol <strong>Lanjut ke Esai</strong>. Setelah melanjutkan, Anda <u>tidak dapat kembali</u> ke soal pilihan ganda.</p>
+
+  <label style="display: block; margin: 10px 0;">
+    <input type="checkbox" id="konfirmasiEssaiCheckbox"> Saya yakin ingin melanjutkan ke soal esai.
+  </label>
+
+  <button onclick="lanjutKeEsai()" style="padding: 10px 20px; margin-right: 10px;">Lanjut ke Esai</button>
+  <button onclick="goToSection(40)" style="padding: 10px 20px;">Kembali ke Soal PG</button>
+</div>
+
+<!-- Esai 1 -->
+<div class="section" id="section41">
+  <h3>Esai 1</h3>
+  <p>Jelaskan peran B.J. Habibie dalam pengembangan teknologi penerbangan Indonesia!</p>
+  <textarea name="esai1" rows="6" style="width:100%;"></textarea>
+  <button onclick="goToSection(42)">Soal Berikutnya</button>
+</div>
+
+<!-- Esai 2 -->
+<div class="section" id="section42">
+  <h3>Esai 2</h3>
+  <p>Bagaimana menurut Anda pentingnya disiplin dalam proses belajar di sekolah?</p>
+  <textarea name="esai2" rows="6" style="width:100%;"></textarea>
+  <button onclick="goToSection(41)">Soal Sebelumnya</button>
+  <button onclick="goToSection(43)">Soal Berikutnya</button>
+</div>
+
+<!-- Esai 3 -->
+<div class="section" id="section43">
+  <h3>Esai 3</h3>
+  <p>Uraikan dampak positif penggunaan teknologi digital dalam dunia pendidikan!</p>
+  <textarea name="esai3" rows="6" style="width:100%;"></textarea>
+  <button onclick="goToSection(42)">Soal Sebelumnya</button>
+  <button onclick="goToSection(44)">Soal Berikutnya</button>
+</div>
+
+<!-- Esai 4 -->
+<div class="section" id="section44">
+  <h3>Esai 4</h3>
+  <p>Jelaskan bagaimana cara menjaga persatuan dan kesatuan di lingkungan sekolah!</p>
+  <textarea name="esai4" rows="6" style="width:100%;"></textarea>
+  <button onclick="goToSection(43)">Soal Sebelumnya</button>
+  <button onclick="goToSection(45)">Soal Berikutnya</button>
+</div>
+
+<!-- Esai 5 -->
+<div class="section" id="section45">
+  <h3>Esai 5</h3>
+  <p>Menurut Anda, apa tantangan terbesar generasi muda Indonesia di era globalisasi?</p>
+  <textarea name="esai5" rows="6" style="width:100%;"></textarea>
+  <button onclick="goToSection(44)">Soal Sebelumnya</button>
+
+  <!-- Form kirim jawaban -->
+  <form action="https://cbtpaketc.infinityfree.me/simpan-jawaban.php"
+        method="POST"
+        onsubmit="return isiJawaban()">
+    <input type="hidden" name="nama" value="">
+    <input type="hidden" name="kelas" value="">
+    <input type="hidden" name="mapel" value="">
+    <input type="hidden" name="sekolah" value="">
+    <input type="hidden" name="tgl" value="">
+    <input type="hidden" name="jawaban" id="jawaban">
+    <button type="submit">✅ Kirim Jawaban</button>
+  </form>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <strong id="footerSekolah">RNJ Application</strong> TP 2025-2026 | PAKETC.COM
+</div>
+
+<script>
+  // Timer
+  let totalSeconds = 60 * 60; // 1 jam
+  let timerInterval;
+  let currentSection = 1;
+
+  function updateTimer() {
+    const timerElement = document.getElementById("timer");
+    if (!timerElement) return;
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    timerElement.textContent = `Sisa waktu: ${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+    if (totalSeconds <= 0) {
+      clearInterval(timerInterval);
+      alert("Waktu habis! Jawaban akan dikirim.");
+      isiJawaban();
+      const finalForm = document.querySelector('#section45 form');
+      if (finalForm) finalForm.submit();
+    }
+    totalSeconds--;
+  }
+
+  function startCBT() {
+    const nama = document.getElementById("nama").value;
+    const kelas = document.getElementById("kelas").value;
+    const sekolah = document.getElementById("sekolah").value;
+    if (!nama || !kelas || !sekolah) {
+      alert("Mohon lengkapi semua data!");
+      return;
+    }
+    localStorage.setItem("cbt_nama", nama);
+    localStorage.setItem("cbt_kelas", kelas);
+    localStorage.setItem("cbt_sekolah", sekolah);
+
+    document.getElementById("formSection").style.display = "none";
+    document.getElementById("mainHeader").classList.remove("hidden");
+    document.getElementById("namaSiswa").textContent = nama;
+    goToSection(1);
+    updateTimer();
+    timerInterval = setInterval(updateTimer, 1000);
+  }
+
+  // Navigasi antar section
+  function goToSection(n) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    const target = document.getElementById(`section${n}`);
+    if (target) {
+      target.classList.add('active');
+      currentSection = n;
+    }
+  }
+
+  function goToKonfirmasiEssai() {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById('konfirmasiEssai').classList.add('active');
+  }
+
+  function lanjutKeEsai() {
+    const checkbox = document.getElementById('konfirmasiEssaiCheckbox');
+    if (checkbox.checked) {
+      goToSection(44);
+    } else {
+      alert("Silakan centang kotak konfirmasi terlebih dahulu sebelum melanjutkan.");
+    }
+  }
+
+  // Autosave PG
+  const allRadios = document.querySelectorAll('input[type="radio"]');
+  allRadios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      const answersRadio = {};
+      document.querySelectorAll('input[type="radio"]').forEach(r => {
+        if (r.checked) answersRadio[r.name] = r.value;
+      });
+      localStorage.setItem('cbt_jawaban_radio', JSON.stringify(answersRadio));
+    });
+  });
+
+  // Autosave Esai
+  const allTextareas = document.querySelectorAll('textarea');
+  allTextareas.forEach(area => {
+    area.addEventListener('input', () => {
+      const answersEssay = {};
+      document.querySelectorAll('textarea').forEach(t => {
+        answersEssay[t.name] = t.value;
+      });
+      localStorage.setItem('cbt_jawaban_esai', JSON.stringify(answersEssay));
+    });
+  });
+
+  // Restore jawaban saat refresh
+  window.onload = () => {
+    const savedRadio = JSON.parse(localStorage.getItem('cbt_jawaban_radio'));
+    if (savedRadio) {
+      Object.keys(savedRadio).forEach(name => {
+        const radios = document.querySelectorAll(`input[name="${name}"]`);
+        radios.forEach(r => {
+          if (r.value === savedRadio[name]) r.checked = true;
+        });
+      });
+    }
+
+    const savedEssay = JSON.parse(localStorage.getItem('cbt_jawaban_esai'));
+    if (savedEssay) {
+      Object.keys(savedEssay).forEach(name => {
+        const textarea = document.querySelector(`textarea[name="${name}"]`);
+        if (textarea) textarea.value = savedEssay[name];
+      });
+    }
+  };
+
+  // ✅ Isi jawaban sebelum submit
+  function isiJawaban() {
+    // Ambil jawaban PG & Esai
+    const jawabanPG = JSON.parse(localStorage.getItem('cbt_jawaban_radio') || "{}");
+    let jawabanEsai = JSON.parse(localStorage.getItem('cbt_jawaban_esai') || "{}");
+    // Sinkronisasi isi textarea terbaru
+    document.querySelectorAll('#section45 textarea').forEach(t => {
+      jawabanEsai[t.name] = t.value;
+    });
+
+    // Identitas siswa
+    const nama = localStorage.getItem("cbt_nama") || "";
+    const kelas = localStorage.getItem("cbt_kelas") || "";
+    const sekolah = localStorage.getItem("cbt_sekolah") || "";
+
+    if (!nama || !kelas || !sekolah) {
+      alert("Identitas belum lengkap. Silakan isi di intro.");
+      return false;
+    }
+
+    // Mapel otomatis dari nama file
+    const path = window.location.pathname.toLowerCase();
+    let mapel = "mapel_tidak_diketahui";
+    if (path.includes("biologi")) mapel = "Biologi";
+    else if (path.includes("matematika")) mapel = "Matematika";
+    else if (path.includes("ppkn")) mapel = "PPKn";
+    else if (path.includes("fisika")) mapel = "Fisika";
+    else if (path.includes("kimia")) mapel = "Kimia";
+    else if (path.includes("ekonomi")) mapel = "Ekonomi";
+    else if (path.includes("bahasa-indonesia-11")) mapel = "Bahasa Indonesia 11"
+
+    const tgl = new Date().toISOString().split("T")[0];
+
+    const paketJawaban = {
+      identitas: { nama, kelas, sekolah, mapel, tgl },
+      pg: jawabanPG,
+      esai: jawabanEsai
+    };
+
+    // Isi hidden input
+const form = document.querySelector('#section45 form');
+form.querySelector('input[name="nama"]').value = nama;
+form.querySelector('input[name="kelas"]').value = kelas;
+form.querySelector('input[name="sekolah"]').value = sekolah;
+form.querySelector('input[name="mapel"]').value = mapel;
+form.querySelector('input[name="tgl"]').value = tgl;
+
+const jawabanInput = document.getElementById("jawaban");
+jawabanInput.value = JSON.stringify(paketJawaban);
+
+return true; // lanjutkan submit
+  }
+</script>
+</body>
+</html>
+
