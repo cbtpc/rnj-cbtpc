@@ -1,1 +1,17 @@
+[
+  {
+    "nama": "Rina",
+    "kelas": "11 IPA",
+    "mapel": "biologi",
+    "sekolah": "SMP Merdeka",
+    "jawaban": { "q1":"b","q2":"d","q3":"a","q4":"c","q5":"e" }
+  },
+  {
+    "nama": "Budi",
+    "kelas": "11 IPS",
+    "mapel": "fisika",
+    "sekolah": "SMP Merdeka",
+    "jawaban": { "q1":"a","q2":"c","q3":"b","q4":"d","q5":"a" }
+  }
+]
 
