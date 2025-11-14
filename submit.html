@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Jawaban Siswa Kelas 11</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, select, textarea { width: 100%; margin-bottom: 12px; padding: 8px; font-size: 14px; }
+    button { padding: 10px 16px; font-size: 14px; background: #0ea5e9; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    pre { background: #f3f4f6; padding: 10px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h2>📝 Form Jawaban Siswa Kelas 11</h2>
+
+  <label>Nama:</label>
+  <input id="nama" placeholder="contoh: Rina Putri">
+
+  <label>Kelas:</label>
+  <select id="kelas">
+    <option value="11 IPA">11 IPA</option>
+    <option value="11 IPS">11 IPS</option>
+  </select>
+
+  <label>Sekolah:</label>
+  <input id="sekolah" placeholder="contoh: SMP Merdeka">
+
+  <label>Mapel:</label>
+  <select id="mapel">
+    <option value="biologi">Biologi</option>
+    <option value="fisika">Fisika</option>
+    <option value="kimia">Kimia</option>
+    <!-- Tambahkan sesuai kebutuhan -->
+  </select>
+
+  <label>Jawaban PG (q1–q5):</label>
+  <textarea id="pg" placeholder='contoh: {"q1":"b","q2":"d","q3":"a","q4":"c","q5":"e"}'></textarea>
+
+  <button onclick="generate()">🔧 Buat Data JSON</button>
+
+  <h3>📦 Data JSON untuk ditambahkan ke <code>jawaban-kelas11.json</code></h3>
+  <pre id="output"></pre>
+
+  <script>
+    function generate() {
+      const nama = document.getElementById("nama").value.trim();
+      const kelas = document.getElementById("kelas").value;
+      const sekolah = document.getElementById("sekolah").value.trim();
+      const mapel = document.getElementById("mapel").value;
+      const pgRaw = document.getElementById("pg").value.trim();
+
+      let jawaban;
+      try {
+        jawaban = JSON.parse(pgRaw);
+      } catch {
+        document.getElementById("output").textContent = "❌ Format jawaban tidak valid.";
+        return;
+      }
+
+      const data = {
+        nama, kelas, mapel, sekolah, jawaban
+      };
+
+      document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
