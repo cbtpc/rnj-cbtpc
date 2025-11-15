@@ -1240,7 +1240,7 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
     document.getElementById("formSection").style.display = "none";
     document.getElementById("mainHeader").classList.remove("hidden");
     document.getElementById("namaSiswa").textContent = nama;
-    goToSection(40);
+    goToSection(1);
     updateTimer();
     timerInterval = setInterval(updateTimer, 1000);
   }
@@ -1305,6 +1305,7 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
           if (r.value === savedRadio[name]) r.checked = true;
         });
       });
+    }
 
     const savedEssay = JSON.parse(localStorage.getItem('cbt_jawaban_esai'));
     if (savedEssay) {
@@ -1312,14 +1313,15 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
         const textarea = document.querySelector(`textarea[name="${name}"]`);
         if (textarea) textarea.value = savedEssay[name];
       });
-    
+    }  
+  };
   // ✅ Isi jawaban sebelum submit
   function isiJawaban() {
     // Ambil jawaban PG & Esai
     const jawabanPG = JSON.parse(localStorage.getItem('cbt_jawaban_radio') || "{}");
     let jawabanEsai = JSON.parse(localStorage.getItem('cbt_jawaban_esai') || "{}");
     // Sinkronisasi isi textarea terbaru
-    document.querySelectorAll('#section45 textarea').forEach(t => {
+    document.querySelectorAll('textarea').forEach(t => {
       jawabanEsai[t.name] = t.value;
     });
 
@@ -1364,35 +1366,30 @@ const jawabanInput = document.getElementById("jawaban");
 jawabanInput.value = JSON.stringify(paketJawaban);
 
 return true; // lanjutkan submit
+  }
+  // ✅ Proteksi dasar
+document.addEventListener('keydown', (e) => {
+  const forbiddenCombos = [
+    (e.ctrlKey && e.key.toLowerCase() === 'p'),
+    (e.ctrlKey && e.key.toLowerCase() === 's'),
+    (e.ctrlKey && e.key.toLowerCase() === 'u'),
+    (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i')
+  ];
+  if (forbiddenCombos.some(Boolean)) {
+    e.preventDefault();
+    alert('Aksi ini diblokir selama ujian.');
+  }
+  if (e.key === 'PrintScreen') {
+    e.preventDefault();
+    alert('Screenshot dinonaktifkan selama ujian.');
+  }
+});
 
-    / ✅ Proteksi dasar
-    document.addEventListener('keydown', (e) => {
-      // Blok beberapa shortcut
-      const forbiddenCombos = [
-        (e.ctrlKey && e.key.toLowerCase() === 'p'), // print
-        (e.ctrlKey && e.key.toLowerCase() === 's'), // save
-        (e.ctrlKey && e.key.toLowerCase() === 'u'), // view source
-        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') // devtools
-      ];
-      if (forbiddenCombos.some(Boolean)) {
-        e.preventDefault();
-        alert('Aksi ini diblokir selama ujian.');
-      }
-      // Cegah PrintScreen (tidak selalu efektif)
-      if (e.key === 'PrintScreen') {
-        e.preventDefault();
-        alert('Screenshot dinonaktifkan selama ujian.');
-      }
-    });
-
-    document.addEventListener('copy', (e) => { e.preventDefault(); alert('Menyalin teks dinonaktifkan.'); });
-    document.addEventListener('cut', (e) => { e.preventDefault(); });
-    document.addEventListener('paste', (e) => { e.preventDefault(); });
+document.addEventListener('copy', (e) => { e.preventDefault(); alert('Menyalin teks dinonaktifkan.'); });
+document.addEventListener('cut', (e) => { e.preventDefault(); });
+document.addEventListener('paste', (e) => { e.preventDefault(); });
   </script>
 </body>
 </html>
-  }
-</script>
-</body>
-</html>
+
 
