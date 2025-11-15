@@ -1178,16 +1178,15 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
   <button onclick="goToSection(45)">Soal Berikutnya</button>
 </div>
 
-<!-- Esai 5 -->
+  <!-- Esai 5 -->
 <div class="section" id="section45">
   <h3>Esai 5</h3>
   <p>Menurut Anda, apa tantangan terbesar generasi muda Indonesia di era globalisasi?</p>
   <textarea name="esai5" rows="6" style="width:100%;"></textarea>
   <button onclick="goToSection(44)">Soal Sebelumnya</button>
 
-  <!-- Form kirim jawaban -->
-   <!-- ✅ FORM KIRIM -->
-  <form action="https://cbtpaketc.infinityfree.me/simpan-jawaban.php" method="POST" onsubmit="return isiJawaban()">
+  <!-- ✅ FORM KIRIM -->
+  <form action="https://script.google.com/macros/s/AKfycbzdUi2J5rTX0UxRu7ZdITcm6ANL6ucKptxHQaZ3lIfnmj4oFFjj3Q0FfxvYgToxF3ga/exec" method="POST" onsubmit="return isiJawaban()">
     <input type="hidden" name="nama">
     <input type="hidden" name="kelas">
     <input type="hidden" name="sekolah">
@@ -1252,15 +1251,15 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
     if (target) {
       target.classList.add('active');
       currentSection = n;
-       window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }
-    
-  function goToKonfirmasiEssai() {
-      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById('konfirmasiEssai').classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+  }
+    
+  function goToKonfirmasiEssai() {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById('konfirmasiEssai').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   function lanjutKeEsai() {
     const checkbox = document.getElementById('konfirmasiEssaiCheckbox');
@@ -1315,17 +1314,15 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
       });
     }  
   };
+
   // ✅ Isi jawaban sebelum submit
   function isiJawaban() {
-    // Ambil jawaban PG & Esai
     const jawabanPG = JSON.parse(localStorage.getItem('cbt_jawaban_radio') || "{}");
     let jawabanEsai = JSON.parse(localStorage.getItem('cbt_jawaban_esai') || "{}");
-    // Sinkronisasi isi textarea terbaru
     document.querySelectorAll('textarea').forEach(t => {
       jawabanEsai[t.name] = t.value;
     });
 
-    // Identitas siswa
     const nama = localStorage.getItem("cbt_nama") || "";
     const kelas = localStorage.getItem("cbt_kelas") || "";
     const sekolah = localStorage.getItem("cbt_sekolah") || "";
@@ -1335,7 +1332,6 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
       return false;
     }
 
-    // Mapel otomatis dari nama file
     const path = window.location.pathname.toLowerCase();
     let mapel = "mapel_tidak_diketahui";
     if (path.includes("biologi")) mapel = "Biologi";
@@ -1344,7 +1340,7 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
     else if (path.includes("fisika")) mapel = "Fisika";
     else if (path.includes("kimia")) mapel = "Kimia";
     else if (path.includes("ekonomi")) mapel = "Ekonomi";
-    else if (path.includes("bahasa-indonesia-11")) mapel = "Bahasa Indonesia 11"
+    else if (path.includes("bahasa-indonesia-11")) mapel = "Bahasa Indonesia 11";
 
     const tgl = new Date().toISOString().split("T")[0];
 
@@ -1354,41 +1350,44 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
       esai: jawabanEsai
     };
 
-    // Isi hidden input
-const form = document.querySelector('#section45 form');
-form.querySelector('input[name="nama"]').value = nama;
-form.querySelector('input[name="kelas"]').value = kelas;
-form.querySelector('input[name="sekolah"]').value = sekolah;
-form.querySelector('input[name="mapel"]').value = mapel;
-form.querySelector('input[name="tgl"]').value = tgl;
+    const form = document.querySelector('#section45 form');
+    form.querySelector('input[name="nama"]').value = nama;
+    form.querySelector('input[name="kelas"]').value = kelas;
+    form.querySelector('input[name="sekolah"]').value = sekolah;
+    form.querySelector('input[name="mapel"]').value = mapel;
+    form.querySelector('input[name="tgl"]').value = tgl;
 
-const jawabanInput = document.getElementById("jawaban");
-jawabanInput.value = JSON.stringify(paketJawaban);
+    const jawabanInput = document.getElementById("jawaban");
+    jawabanInput.value = JSON.stringify(paketJawaban);
 
-return true; // lanjutkan submit
+    return true;
   }
-  // ✅ Proteksi dasar
-document.addEventListener('keydown', (e) => {
-  const forbiddenCombos = [
-    (e.ctrlKey && e.key.toLowerCase() === 'p'),
-    (e.ctrlKey && e.key.toLowerCase() === 's'),
-    (e.ctrlKey && e.key.toLowerCase() === 'u'),
-    (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i')
-  ];
-  if (forbiddenCombos.some(Boolean)) {
-    e.preventDefault();
-    alert('Aksi ini diblokir selama ujian.');
-  }
-  if (e.key === 'PrintScreen') {
-    e.preventDefault();
-    alert('Screenshot dinonaktifkan selama ujian.');
-  }
-});
 
-document.addEventListener('copy', (e) => { e.preventDefault(); alert('Menyalin teks dinonaktifkan.'); });
-document.addEventListener('cut', (e) => { e.preventDefault(); });
-document.addEventListener('paste', (e) => { e.preventDefault(); });
-  </script>
+    // ✅ Proteksi dasar
+  document.addEventListener('keydown', (e) => {
+    const forbiddenCombos = [
+      (e.ctrlKey && e.key.toLowerCase() === 'p'),
+      (e.ctrlKey && e.key.toLowerCase() === 's'),
+      (e.ctrlKey && e.key.toLowerCase() === 'u'),
+      (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i')
+    ];
+    if (forbiddenCombos.some(Boolean)) {
+      e.preventDefault();
+      alert('Aksi ini diblokir selama ujian.');
+    }
+    if (e.key === 'PrintScreen') {
+      e.preventDefault();
+      alert('Screenshot dinonaktifkan selama ujian.');
+    }
+  });
+
+  document.addEventListener('copy', (e) => { 
+    e.preventDefault(); 
+    alert('Menyalin teks dinonaktifkan.'); 
+  });
+  document.addEventListener('cut', (e) => { e.preventDefault(); });
+  document.addEventListener('paste', (e) => { e.preventDefault(); });
+</script>
 </body>
 </html>
 
