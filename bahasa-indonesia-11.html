@@ -1186,14 +1186,13 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
   <button onclick="goToSection(44)">Soal Sebelumnya</button>
 
   <!-- Form kirim jawaban -->
-  <form action="https://cbtpaketc.infinityfree.me/simpan-jawaban.php"
-        method="POST"
-        onsubmit="return isiJawaban()">
-    <input type="hidden" name="nama" value="">
-    <input type="hidden" name="kelas" value="">
-    <input type="hidden" name="mapel" value="">
-    <input type="hidden" name="sekolah" value="">
-    <input type="hidden" name="tgl" value="">
+   <!-- ✅ FORM KIRIM -->
+  <form action="https://cbtpaketc.infinityfree.me/simpan-jawaban.php" method="POST" onsubmit="return isiJawaban()">
+    <input type="hidden" name="nama">
+    <input type="hidden" name="kelas">
+    <input type="hidden" name="sekolah">
+    <input type="hidden" name="mapel">
+    <input type="hidden" name="tgl">
     <input type="hidden" name="jawaban" id="jawaban">
     <button type="submit">✅ Kirim Jawaban</button>
   </form>
@@ -1241,7 +1240,7 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
     document.getElementById("formSection").style.display = "none";
     document.getElementById("mainHeader").classList.remove("hidden");
     document.getElementById("namaSiswa").textContent = nama;
-    goToSection(1);
+    goToSection(40);
     updateTimer();
     timerInterval = setInterval(updateTimer, 1000);
   }
@@ -1253,18 +1252,20 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
     if (target) {
       target.classList.add('active');
       currentSection = n;
+       window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
-  }
-
+    
   function goToKonfirmasiEssai() {
-    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-    document.getElementById('konfirmasiEssai').classList.add('active');
-  }
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById('konfirmasiEssai').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
   function lanjutKeEsai() {
     const checkbox = document.getElementById('konfirmasiEssaiCheckbox');
     if (checkbox.checked) {
-      goToSection(44);
+      goToSection(41);
     } else {
       alert("Silakan centang kotak konfirmasi terlebih dahulu sebelum melanjutkan.");
     }
@@ -1304,7 +1305,6 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
           if (r.value === savedRadio[name]) r.checked = true;
         });
       });
-    }
 
     const savedEssay = JSON.parse(localStorage.getItem('cbt_jawaban_esai'));
     if (savedEssay) {
@@ -1312,9 +1312,7 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
         const textarea = document.querySelector(`textarea[name="${name}"]`);
         if (textarea) textarea.value = savedEssay[name];
       });
-    }
-  };
-
+    
   // ✅ Isi jawaban sebelum submit
   function isiJawaban() {
     // Ambil jawaban PG & Esai
@@ -1366,6 +1364,33 @@ const jawabanInput = document.getElementById("jawaban");
 jawabanInput.value = JSON.stringify(paketJawaban);
 
 return true; // lanjutkan submit
+
+    / ✅ Proteksi dasar
+    document.addEventListener('keydown', (e) => {
+      // Blok beberapa shortcut
+      const forbiddenCombos = [
+        (e.ctrlKey && e.key.toLowerCase() === 'p'), // print
+        (e.ctrlKey && e.key.toLowerCase() === 's'), // save
+        (e.ctrlKey && e.key.toLowerCase() === 'u'), // view source
+        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') // devtools
+      ];
+      if (forbiddenCombos.some(Boolean)) {
+        e.preventDefault();
+        alert('Aksi ini diblokir selama ujian.');
+      }
+      // Cegah PrintScreen (tidak selalu efektif)
+      if (e.key === 'PrintScreen') {
+        e.preventDefault();
+        alert('Screenshot dinonaktifkan selama ujian.');
+      }
+    });
+
+    document.addEventListener('copy', (e) => { e.preventDefault(); alert('Menyalin teks dinonaktifkan.'); });
+    document.addEventListener('cut', (e) => { e.preventDefault(); });
+    document.addEventListener('paste', (e) => { e.preventDefault(); });
+  </script>
+</body>
+</html>
   }
 </script>
 </body>
