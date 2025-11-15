@@ -1178,7 +1178,7 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
   <button onclick="goToSection(45)">Soal Berikutnya</button>
 </div>
 
- <!-- Esai 5 -->
+<!-- Esai 5 -->
 <div class="section" id="section45">
   <h3>Esai 5</h3>
   <p>Menurut Anda, apa tantangan terbesar generasi muda Indonesia di era globalisasi?</p>
@@ -1252,6 +1252,22 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
       target.classList.add('active');
       currentSection = n;
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  // ✅ Konfirmasi Essay
+  function goToKonfirmasiEssai() {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById('konfirmasiEssai').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function lanjutKeEsai() {
+    const checkbox = document.getElementById('konfirmasiEssaiCheckbox');
+    if (checkbox && checkbox.checked) {
+      goToSection(41);
+    } else {
+      alert("Silakan centang kotak konfirmasi terlebih dahulu sebelum melanjutkan.");
     }
   }
 
@@ -1366,12 +1382,14 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
     }
   });
 
-  document.addEventListener('copy', (e) => { e.preventDefault(); alert('Menyalin teks dinonaktifkan.'); });
+  document.addEventListener('copy', (e) => { 
+    e.preventDefault(); 
+    alert('Menyalin teks dinonaktifkan.'); 
+  });
   document.addEventListener('cut', (e) => { e.preventDefault(); });
   document.addEventListener('paste', (e) => { e.preventDefault(); });
 </script>
 </body>
 </html>
- 
 
-  
+ 
