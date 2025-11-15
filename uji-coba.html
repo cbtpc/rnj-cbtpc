@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Uji Coba Kirim Jawaban CBT</title>
+  <script>
+    async function isiJawaban() {
+      const jawabanPG = {
+        "1": "A", "2": "B", "3": "A", "4": "E", "5": "B",
+        "6": "B", "7": "B", "8": "A", "9": "D", "10": "E",
+        "11": "E", "12": "C", "13": "B", "14": "A", "15": "E",
+        "16": "D", "17": "D", "18": "A", "19": "D", "20": "B",
+        "21": "E", "22": "B", "23": "E", "24": "D", "25": "A",
+        "26": "E", "27": "B", "28": "D", "29": "B", "30": "E",
+        "31": "A", "32": "C", "33": "C", "34": "D", "35": "D",
+        "36": "B", "37": "A", "38": "B", "39": "E", "40": "C"
+      };
+
+      const jawabanEsai = {
+        "esai5": document.getElementById("esai5").value
+      };
+
+      const paketJawaban = {
+        identitas: {
+          nama: document.getElementById("nama").value,
+          kelas: document.getElementById("kelas").value,
+          sekolah: document.getElementById("sekolah").value,
+          mapel: "Bahasa Indonesia 11",
+          tgl: new Date().toISOString().split("T")[0]
+        },
+        pg: jawabanPG,
+        esai: jawabanEsai
+      };
+
+      document.getElementById("jawaban").value = JSON.stringify(paketJawaban);
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h2>Form Uji Coba Kirim Jawaban CBT</h2>
+  <form action="https://script.google.com/macros/s/AKfycbzdUi2J5rTX0UxRu7ZdITcm6ANL6ucKptxHQaZ3lIfnmj4oFFjj3Q0FfxvYgToxF3ga/exec" method="POST" onsubmit="return isiJawaban()">
+    <label>Nama:</label><br>
+    <input type="text" id="nama" name="nama" value="Faisal Farid"><br><br>
+
+    <label>Kelas:</label><br>
+    <input type="text" id="kelas" name="kelas" value="XI"><br><br>
+
+    <label>Sekolah:</label><br>
+    <input type="text" id="sekolah" name="sekolah" value="PKBM RNJ"><br><br>
+
+    <label>Esai 5:</label><br>
+    <textarea id="esai5" rows="5" cols="50">Tantangan terbesar generasi muda adalah menjaga identitas budaya di tengah arus global.</textarea><br><br>
+
+    <input type="hidden" name="jawaban" id="jawaban">
+    <button type="submit">✅ Kirim Jawaban</button>
+  </form>
+</body>
+</html>
+
