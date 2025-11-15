@@ -1,16 +1,83 @@
 {
-  "biologi": {
-    "q1": "b",
-    "q2": "d",
-    "q3": "a",
-    "q4": "c",
-    "q5": "e"
+  "Bahasa Indonesia 11": {
+    "soal1": "A",
+    "soal2": "B",
+    "soal3": "A",
+    "soal4": "E",
+    "soal5": "B",
+    "soal6": "B",
+    "soal7": "B",
+    "soal8": "A",
+    "soal9": "A",
+    "soal10": "D",
+    "soal11": "E",
+    "soal12": "C",
+    "soal13": "B",
+    "soal14": "A",
+    "soal15": "E",
+    "soal16": "D",
+    "soal17": "D",
+    "soal18": "A",
+    "soal19": "D",
+    "soal20": "B",
+    "soal21": "E",
+    "soal22": "B",
+    "soal23": "E",
+    "soal24": "D",
+    "soal25": "A",
+    "soal26": "E",
+    "soal27": "B",
+    "soal28": "D",
+    "soal29": "B",
+    "soal30": "E",
+    "soal31": "A",
+    "soal32": "C",
+    "soal33": "C",
+    "soal34": "D",
+    "soal35": "D",
+    "soal36": "B",
+    "soal37": "A",
+    "soal38": "B",
+    "soal39": "E",
+    "soal40": "C"
   },
-  "fisika": {
-    "q1": "a",
-    "q2": "c",
-    "q3": "b",
-    "q4": "d",
-    "q5": "e"
+
+  "Matematika 11": {
+    "soal1": "C",
+    "soal2": "D",
+    "soal3": "B",
+    "soal4": "A",
+    "soal5": "E",
+    "soal6": "C",
+    "soal7": "B",
+    "soal8": "D",
+    "soal9": "A",
+    "soal10": "C"
+  },
+
+  "Fisika 11": {
+    "soal1": "B",
+    "soal2": "C",
+    "soal3": "A",
+    "soal4": "D",
+    "soal5": "E",
+    "soal6": "A",
+    "soal7": "C",
+    "soal8": "B",
+    "soal9": "D",
+    "soal10": "A"
+  },
+
+  "Ekonomi 11": {
+    "soal1": "A",
+    "soal2": "C",
+    "soal3": "B",
+    "soal4": "D",
+    "soal5": "E",
+    "soal6": "B",
+    "soal7": "C",
+    "soal8": "A",
+    "soal9": "D",
+    "soal10": "E"
   }
 }
