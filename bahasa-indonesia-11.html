@@ -1186,15 +1186,17 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
   <button onclick="goToSection(44)">Soal Sebelumnya</button>
 
   <!-- ✅ FORM KIRIM -->
-  <form action="https://script.google.com/macros/s/AKfycbzdUi2J5rTX0UxRu7ZdITcm6ANL6ucKptxHQaZ3lIfnmj4oFFjj3Q0FfxvYgToxF3ga/exec" method="POST" onsubmit="return isiJawaban()">
-    <input type="hidden" name="nama">
-    <input type="hidden" name="kelas">
-    <input type="hidden" name="sekolah">
-    <input type="hidden" name="mapel">
-    <input type="hidden" name="tgl">
-    <input type="hidden" name="jawaban" id="jawaban">
-    <button type="submit">✅ Kirim Jawaban</button>
-  </form>
+<form action="https://docs.google.com/forms/d/e/1FAIpQLScvjECOn-rl5KjkIIDVZ8RA5W5a_wBz9JEib5gZevYgvNii-A/formResponse"
+      method="POST" onsubmit="return isiJawaban()">
+  <!-- Hidden input sesuai kolom di Google Form -->
+ <input type="hidden" name="entry.862015414" id="nama">
+<input type="hidden" name="entry.1225348879" id="kelas">
+<input type="hidden" name="entry.2042345076" id="sekolah">
+<input type="hidden" name="entry.1138760913" id="tgl">
+<input type="hidden" name="entry.3344556677" id="mapel">
+<input type="hidden" name="entry.4455667788" id="jawaban">
+  <button type="submit">✅ Kirim Jawaban</button>
+</form>
 </div>
 
 <!-- Footer -->
@@ -1351,16 +1353,17 @@ Sebelum Ajeng menjawab, Vira terlebih dahulu menyahut, “Alvin.” Sahutnya pel
       esai: jawabanEsai
     };
 
-    const form = document.querySelector('#section45 form');
-    form.querySelector('input[name="nama"]').value = nama;
-    form.querySelector('input[name="kelas"]').value = kelas;
-    form.querySelector('input[name="sekolah"]').value = sekolah;
-    form.querySelector('input[name="mapel"]').value = mapel;
-    form.querySelector('input[name="tgl"]').value = tgl;
+ const form = document.querySelector('#section45 form');
+form.querySelector('#nama').value    = nama;
+form.querySelector('#kelas').value   = kelas;
+form.querySelector('#sekolah').value = sekolah;
+form.querySelector('#mapel').value   = mapel;
+form.querySelector('#tgl').value     = tgl;
 
-    const jawabanInput = document.getElementById("jawaban");
-    jawabanInput.value = JSON.stringify(paketJawaban);
-
+const jawabanInput = document.getElementById("jawaban");
+jawabanInput.value = JSON.stringify(paketJawaban);
+   
+    
     return true;
   }
 
